@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Progetto | Five Worlds RP</title>
+
+    <link rel="icon" type="img/png" href="logo.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --orange: #00fbff;
+            --dark: #000000;
+            --card-bg: #050505;
+            --border: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--dark);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR (Identica alla Home) */
+        .navbar {
+            position: fixed; top: 0; width: 100%; height: 100px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 6%; z-index: 1000;
+            background: rgba(0,0,0,0.95);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .brand { font-weight: 900; font-size: 1.4rem; text-transform: uppercase; }
+        .orange { color: var(--orange); }
+
+        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; opacity: 0.6; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--orange); }
+
+        .play-btn { background: var(--orange); color: black; padding: 12px 30px; border-radius: 8px; font-weight: 900; text-decoration: none; font-size: 0.85rem; }
+        .menu-btn {
+            display: none;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: white;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        /* HEADER PAGINA PROGETTO */
+        .project-header {
+            padding: 200px 8% 100px;
+            text-align: center;
+            background: linear-gradient(to bottom, #0a0a0a, var(--dark));
+        }
+
+        .pre-title { color: var(--orange); font-weight: 900; letter-spacing: 4px; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 15px; }
+        .project-header h1 { font-size: 4.5rem; font-weight: 900; text-transform: uppercase; }
+
+        /* SEZIONI CONTENUTO (Stile Impero) */
+        .content-section {
+            padding: 100px 10%;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .content-section:nth-child(even) { flex-direction: row-reverse; background: #030303; }
+
+        .content-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content-image i {
+            font-size: 12rem;
+            color: var(--orange);
+            opacity: 0.8;
+            filter: drop-shadow(0 0 30px rgba(255, 140, 0, 0.2));
+        }
+
+        .content-text { flex: 1; }
+        .content-text h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 25px; text-transform: uppercase; }
+        .content-text h2 span { color: var(--orange); }
+        .content-text p { font-size: 1.1rem; color: #888; margin-bottom: 20px; }
+
+        /* FOOTER */
+        footer { padding: 80px 0; border-top: 1px solid #111; text-align: center; margin-top: 50px; }
+        .footer-copy { color: #333; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+
+        @media (max-width: 992px) {
+            .content-section { flex-direction: column !important; text-align: center; gap: 40px; }
+            .project-header h1 { font-size: 3rem; }
+            .navbar { height: 80px; padding: 0 5%; }
+            .play-btn { padding: 10px 16px; font-size: 0.75rem; }
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 80px; right: 5%; left: 5%;
+                flex-direction: column; gap: 12px;
+                background: #050505; padding: 16px; border-radius: 12px;
+                border: 1px solid #111;
+            }
+            .nav-links.show { display: flex; }
+            .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-area">
+            <i class="fa-solid fa-crown" style="font-size: 1.8rem; color: var(--orange);"></i>
+            <div class="logo-text">
+                <span class="brand">Five Worlds <span class="orange">RP</span></span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="progetto.html" class="active">Progetto</a></li>
+            <li><a href="regolamento.html" class="active">Regolamento</a></li>
+            <li><a href="come-giocare.html" class="active">Come Giocare</a></li>
+            <li><a href="whitelist.html" class="active">Whitelist</a></li>
+            <li><a href="staff.html" class="active">Staff</a></li>
+        </ul>
+        <a href="fivem://connect/IP" class="play-btn">GIOCA ORA</a>
+        <button class="menu-btn" type="button" aria-label="Apri menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="project-header">
+        <span class="pre-title" data-aos="fade-up">SCOPRI DI PIÙ</span>
+        <h1 data-aos="fade-up" data-aos-delay="100">Il Nostro <span>Progetto</span></h1>
+    </div>
+
+    <section class="content-section">
+        <div class="content-image" data-aos="fade-right">
+            <i class="fa-solid fa-rocket"></i>
+        </div>
+        <div class="content-text" data-aos="fade-left">
+            <h2>La nostra <span>Mission</span></h2>
+            <p>Five Worlds nasce con l'obiettivo di rivoluzionare il panorama del RolePlay italiano. Vogliamo offrire un'esperienza dove la qualità delle scene e l'immersione siano al primo posto.</p>
+            <p>Ogni script, ogni veicolo e ogni dinamica è stata studiata per permettere ai giocatori di vivere una vita parallela senza limiti, supportata da una tecnologia all'avanguardia.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="content-image" data-aos="fade-left">
+            <i class="fa-solid fa-microchip"></i>
+        </div>
+        <div class="content-text" data-aos="fade-right">
+            <h2>Tecnologia <span>Avanzata</span></h2>
+            <p>Utilizziamo infrastrutture dedicate con protezione Anti-DDoS di livello enterprise per garantire che il tuo divertimento non venga mai interrotto.</p>
+            <p>Il nostro game-engine personalizzato permette di gestire centinaia di giocatori contemporaneamente mantenendo FPS elevati e una stabilità del server vicina al 100%.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="content-image" data-aos="fade-right">
+            <i class="fa-solid fa-handshake-angle"></i>
+        </div>
+        <div class="content-text" data-aos="fade-left">
+            <h2>Supporto <span>Community</span></h2>
+            <p>Il progetto Five Worlds è costruito intorno ai suoi utenti. Il nostro staff è disponibile 24/7 per assistere i nuovi giocatori e risolvere qualsiasi problematica.</p>
+            <p>Ascoltiamo costantemente i feedback della community per implementare nuove funzionalità e migliorare quelle esistenti, rendendo il server un posto creato dai player per i player.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-copy">© 2026 FIVE WORLDS RP — IL FUTURO DEL ROLEPLAY — RAWEST89</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff | Five Worlds RP</title>
+
+    <link rel="icon" type="img/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --neon: #00fbff;
+            --dark: #000000;
+            --card-bg: #050505;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--dark); color: white; font-family: 'Montserrat', sans-serif; line-height: 1.6; }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; width: 100%; height: 90px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 6%; z-index: 1000; background: rgba(0,0,0,0.95);
+            border-bottom: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(10px);
+        }
+        .brand { font-weight: 900; font-size: 1.4rem; text-transform: uppercase; }
+        .brand span { color: var(--neon); text-shadow: 0 0 10px rgba(0, 251, 255, 0.3); }
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; opacity: 0.5; transition: 0.3s; }
+        .nav-links a.active { opacity: 1; color: var(--neon); }
+        .play-btn { background: var(--neon); color: black; padding: 10px 25px; border-radius: 5px; font-weight: 900; text-decoration: none; font-size: 0.8rem; }
+        .menu-btn {
+            display: none;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: transparent;
+            color: white;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        /* HEADER */
+        .page-header { padding: 180px 8% 40px; text-align: center; }
+        .page-header h1 { font-size: 4rem; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
+        .page-header h1 span { color: var(--neon); }
+        .pre-title { color: var(--neon); font-weight: 900; letter-spacing: 5px; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 10px; }
+
+        /* STAFF GRID SYSTEM */
+        .staff-container { max-width: 1300px; margin: 0 auto 100px; padding: 0 20px; }
+        
+        .role-title {
+            text-align: center; font-size: 1rem; font-weight: 900; letter-spacing: 4px;
+            color: #222; text-transform: uppercase; margin: 80px 0 40px;
+            display: flex; align-items: center; gap: 20px;
+        }
+        .role-title::before, .role-title::after { content: ''; flex: 1; height: 1px; background: #111; }
+
+        .grid-staff {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .staff-card {
+            background: var(--card-bg); border-radius: 20px; padding: 40px 20px;
+            text-align: center; border: 1px solid #111; transition: 0.4s;
+        }
+        .staff-card:hover { border-color: var(--neon); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 251, 255, 0.05); }
+
+        .avatar-box { position: relative; width: 110px; height: 110px; margin: 0 auto 25px; }
+        .avatar-box img { width: 100%; height: 100%; border-radius: 50%; border: 3px solid #111; position: relative; z-index: 2; transition: 0.4s; }
+        .staff-card:hover .avatar-box img { border-color: var(--neon); }
+        .avatar-box::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--neon); border-radius: 50%; filter: blur(20px); opacity: 0; transition: 0.4s; }
+        .staff-card:hover .avatar-box::after { opacity: 0.2; }
+
+        .staff-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 5px; }
+        .staff-card p { font-size: 0.7rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; color: var(--neon); }
+
+        footer { padding: 60px 0; border-top: 1px solid #111; text-align: center; color: #222; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; }
+
+        @media (max-width: 768px) {
+            .navbar { height: 80px; padding: 0 5%; }
+            .play-btn { padding: 10px 16px; font-size: 0.75rem; }
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 80px; right: 5%; left: 5%;
+                flex-direction: column; gap: 12px;
+                background: #050505; padding: 16px; border-radius: 12px;
+                border: 1px solid #111;
+            }
+            .nav-links.show { display: flex; }
+            .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+            .page-header { padding: 150px 6% 30px; }
+            .page-header h1 { font-size: 2.6rem; }
+            .role-title { font-size: 0.9rem; letter-spacing: 3px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="brand">Five Worlds <span>RP</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="progetto.html">Progetto</a></li>
+            <li><a href="regolamento.html">Regolamento</a></li>
+            <li><a href="come-giocare.html">Guida</a></li>
+            <li><a href="whitelist.html">Whitelist</a></li>
+            <li><a href="staff.html" class="active">Staff</a></li>
+        </ul>
+        <a href="fivem://connect/IP" class="play-btn">GIOCA ORA</a>
+        <button class="menu-btn" type="button" aria-label="Apri menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="page-header">
+        <span class="pre-title" data-aos="fade-up">DIETRO IL PROGETTO</span>
+        <h1 data-aos="fade-up" data-aos-delay="100">Team <span>Staff</span></h1>
+    </div>
+
+    <div class="staff-container">
+        
+        <div class="role-title">Gestione</div>
+        <div class="grid-staff">
+            <div class="staff-card" data-aos="fade-up">
+                <div class="avatar-box"><img src="https://cdn.discordapp.com/attachments/1466777818859049210/1467655547204534498/c853adba56db082174c70d0de745cb97.webp?ex=6983cf3e&is=69827dbe&hm=260750f08a2db0fe4e4705d553644eebd14f4dd1b1661e4449c32d6e36db7771&" alt="Owner"></div>
+                <h3>Dmitri</h3>
+                <p>Owner</p>
+            </div>
+            <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-box"><img src="https://cdn.discordapp.com/attachments/1466926669955858654/1467652435303469159/Xq41q24.jpg?ex=69847518&is=69832398&hm=d5eb5643cb36442744056694743a15f35169793ff4c2977efe4ae3c0c6514e84&" alt="Founder"></div>
+                <h3>Maso</h3>
+                <p>Owner</p>
+            </div>
+            <div class="staff-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="avatar-box"><img src="https://cdn.discordapp.com/attachments/1427369168872673425/1467103559370932489/image.png?ex=697f2a2a&is=697dd8aa&hm=a03876084ec67b436a2ce67e19852366be0d7b6cf1c1c6d870968515d34c03a3&" alt="Co-Founder"></div>
+                <h3>Zorro</h3>
+                <p>Co-Founder</p>
+            </div>
+             <div class="staff-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=HAdmin" alt="Co-Founder"></div>
+                <h3>FakeChris</h3>
+                <p>Co-Founder</p>
+            </div>
+             <div class="staff-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="avatar-box"><img src="https://cdn.discordapp.com/attachments/1467106835248185355/1467106879493767239/IMG_1063.jpg?ex=697f2d41&is=697ddbc1&hm=65031e6cf95e534217b89b1c1d47ff10f6ced77af2b3e3986070495757c55664&" alt="Co-Founder"></div>
+                <h3>Mozambico</h3>
+                <p>Resp.Staff</p>
+            </div>
+        </div>
+
+        <div class="role-title">Admin</div>
+        <div class="grid-staff">
+            <div class="staff-card" data-aos="fade-up">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=HAdmin" alt="Head Admin"></div>
+                <h3>Non Assegnato</h3>
+                <p>H.Admin</p>
+            </div>
+            <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-box"><img src="https://cdn.discordapp.com/attachments/1211714887731122324/1467101802469265409/ChatGPT_Image_31_gen_2026_11_17_57.png?ex=697f2887&is=697dd707&hm=73ab62511abc5c8ef1f783df48b1463d9dfc0b52736cdc15f280c3cfba54aeb6&" alt="Admin"></div>
+                <h3>Rawest89</h3>
+                <p>Admin</p>
+            </div>
+            <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Admin" alt="Admin"></div>
+                <h3>Sunny</h3>
+                <p>Admin</p>
+            </div>
+        </div>
+
+        <div class="role-title">Moderatori</div>
+        <div class="grid-staff">
+            <div class="staff-card" data-aos="fade-up">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=RespMod" alt="Resp Mod"></div>
+                <h3>Termos_tv</h3>
+                <p>Resp. Mod</p>
+            </div>
+            <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=HAdmin" alt="Mod"></div>
+                <h3>Non Assegnato</h3>
+                <p>Moderatore</p>
+            </div>
+              <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mod" alt="Mod"></div>
+                <h3>Ztonsss</h3>
+                <p>Moderatore</p>
+            </div>
+              <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mod" alt="Mod"></div>
+                <h3>Pesach</h3>
+                <p>Moderatore</p>
+            </div>
+              <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mod" alt="Mod"></div>
+                <h3>Neneym</h3>
+                <p>Moderatore</p>
+            </div>
+            </div>
+              <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mod" alt="Mod"></div>
+                <h3>Marco</h3>
+                <p>Moderatore</p>
+            </div>
+        </div>
+
+        <div class="role-title">Helper</div>
+        <div class="grid-staff">
+            <div class="staff-card" data-aos="fade-up">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=RespHelper" alt="Resp Helper"></div>
+                <h3>Non Assegnato</h3>
+                <p>Resp. Helper</p>
+            </div>
+            <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Helper" alt="Helper"></div>
+                <h3>Komar</h3>
+                <p>Helper</p>
+            </div>
+            <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Helper" alt="Helper"></div>
+                <h3>SucLukas</h3>
+                <p>Helper</p>
+            </div>
+             <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Helper" alt="Helper"></div>
+                <h3>blvckstar17</h3>
+                <p>Helper</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>© 2026 FIVE WORLDS RP — ELITE STAFF TEAM — RAWEST89</footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+        }
+    </script>
+</body>
+</html>

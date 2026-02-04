@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regolamento | Five Worlds RP</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --cyan: #00fbff; 
+            --dark: #000000;
+            --card-bg: #0a0a0a;
+            --border: rgba(255, 255, 255, 0.05);
+            --danger: #ff4d4d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--dark);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; width: 100%; height: 80px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 6%; z-index: 1000;
+            background: rgba(0,0,0,0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; }
+        .logo-img { height: 40px; }
+        .brand { font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* HEADER PAGINA */
+        .rules-header {
+            padding: 150px 10% 50px;
+            text-align: center;
+            background: linear-gradient(to bottom, #111, var(--dark));
+        }
+
+        .rules-header h1 { font-size: 3.5rem; font-weight: 900; text-transform: uppercase; }
+        .rules-header h1 span { color: var(--cyan); }
+        .rules-header p { color: #666; font-weight: 600; margin-top: 10px; }
+
+        /* CONTENUTI REGOLAMENTO */
+        .rules-container { max-width: 900px; margin: 0 auto 100px; padding: 0 20px; }
+
+        .rule-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .rule-section:hover { border-color: rgba(0, 251, 255, 0.3); }
+
+        .rule-title {
+            padding: 20px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .rule-title i { color: var(--cyan); transition: 0.3s; }
+
+        .rule-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            color: #aaa;
+        }
+
+        .rule-section.active .rule-content {
+            padding: 20px 30px 30px;
+            max-height: 2000px; /* Aumentato per contenuti lunghi */
+        }
+
+        .rule-section.active .rule-title i { transform: rotate(180deg); }
+
+        .rule-content ul { list-style: none; }
+        .rule-content li { margin-bottom: 15px; position: relative; padding-left: 20px; font-size: 0.95rem; }
+        .rule-content li::before { 
+            content: ">>"; color: var(--cyan); 
+            position: absolute; left: 0; font-weight: 900; font-size: 0.8rem;
+        }
+
+        .important { color: var(--cyan); font-weight: 700; }
+        .danger-text { color: var(--danger); font-weight: 800; text-transform: uppercase; }
+
+        /* BOTTONI AZIONE */
+        .action-btns { display: flex; gap: 15px; justify-content: center; margin-top: 30px; }
+        .btn-small { 
+            padding: 10px 20px; border-radius: 6px; text-decoration: none; 
+            font-weight: 800; font-size: 0.75rem; text-transform: uppercase; transition: 0.3s;
+        }
+        .btn-pdf { background: var(--danger); color: white; }
+        .btn-discord { background: #5865F2; color: white; }
+        .btn-small:hover { transform: translateY(-3px); filter: brightness(1.2); }
+
+        footer { padding: 50px 0; text-align: center; color: #333; font-weight: 800; font-size: 0.8rem; border-top: 1px solid #111; }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 0 5%; }
+            .brand { font-size: 0.9rem; }
+            .rules-header { padding: 130px 6% 40px; }
+            .rules-header h1 { font-size: 2.4rem; }
+            .rule-title { padding: 16px 20px; font-size: 0.85rem; }
+            .rule-content { padding: 0 20px; }
+            .rule-section.active .rule-content { padding: 16px 20px 24px; }
+            .action-btns { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-area">
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <span class="brand">Five Worlds <span style="color: var(--cyan)">RP</span></span>
+        </a>
+        <a href="index.html" style="color: var(--cyan); text-decoration: none; font-weight: 800; font-size: 0.8rem; text-transform: uppercase;">Torna alla Home</a>
+    </nav>
+
+    <header class="rules-header" data-aos="fade-down">
+        <h1>Regolamento <span>Ufficiale</span></h1>
+        <p>Ultimo aggiornamento: 31/01/2026</p>
+    </header>
+
+    <div class="rules-container">
+        
+        <div class="rule-section" data-aos="fade-up">
+            <div class="rule-title">
+                1. Regole Generali
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="rule-content">
+                <ul>
+                    <li><span class="important">RDM (Random Deathmatch):</span> È vietato uccidere altri giocatori senza un valido motivo di ruolo.</li>
+                    <li><span class="important">VDM (Vehicle Deathmatch):</span> È vietato usare il veicolo come arma per investire intenzionalmente i player.</li>
+                    <li><span class="important">MetaGaming:</span> È vietato utilizzare informazioni ottenute fuori dal gioco (Discord, Twitch) per scopi in-game.</li>
+                    <li><span class="important">PowerGaming:</span> È vietato compiere azioni impossibili nella realtà o forzare il roleplay altrui.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="rule-section" data-aos="fade-up" data-aos-delay="100">
+            <div class="rule-title">
+                2. Comportamento e Rispetto
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="rule-content">
+                <ul>
+                    <li>Il rispetto verso i membri della community e lo staff è obbligatorio.</li>
+                    <li>Non sono tollerati insulti OOC, razzismo o discriminazioni.</li>
+                    <li>È obbligatorio l'uso del microfono per interagire.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="rule-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="rule-title">
+                3. Rapine e Zone Sicure
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="rule-content">
+                <ul>
+                    <li>Le <span class="important">Green Zone</span> (Ospedali, Polizia) sono aree protette.</li>
+                    <li>È vietato rapinare lo stesso cittadino più volte in un breve lasso di tempo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="rule-section" data-aos="fade-up" data-aos-delay="300">
+            <div class="rule-title" style="border-left: 4px solid var(--danger);">
+                <span style="color: var(--danger);">4. BUON SENSO & STAFF</span>
+                <i class="fas fa-gavel" style="color: var(--danger);"></i>
+            </div>
+            <div class="rule-content">
+                <p style="text-align: center; font-weight: 900; color: var(--danger); margin-bottom: 20px; font-size: 1.1rem; letter-spacing: 2px;">BUON SENSO</p>
+                <ul>
+                    <li>Il tuo personaggio deve avere un <span class="important">nome consono e realistico</span>. Non sono ammessi nomi di personaggi famosi, nomi buffi o stupidi.</li>
+                    <li>I giocatori devono sempre seguire i <span class="important">termini di servizio</span> di Twitch.tv.</li>
+                    <li>Avere un comportamento tossico o generare tossicità può portare all'allontanamento immediato dalla community.</li>
+                    <li>È severamente vietato uscire dal roleplay; qualsiasi forma di insulto verso le persone IRL è vietata.</li>
+                    <li><span class="danger-text">Rispetto Staff:</span> È severamente vietato insultare, offendere o assumere atteggiamenti tossici verso lo Staff in privato.</li>
+                    <li>Qualsiasi comportamento immaturo verso lo Staff in assistenza sarà considerato condotta scorretta e comporterà ulteriori provvedimenti.</li>
+                    <li>È fondamentale rispettare la persona con cui interagisci e fornire giustificazioni valide per le tue scelte di gioco.</li>
+                </ul>
+
+                <div class="action-btns">
+                    <a href="#" class="btn-small btn-pdf"><i class="fas fa-file-pdf"></i> Scarica PDF</a>
+                    <a href="https://discord.gg/dk6VtX6MGa" target="_blank" class="btn-small btn-discord"><i class="fab fa-discord"></i> Apri Ticket</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>© 2026 FIVE WORLDS RP — ELITE ROLEPLAY EXPERIENCE— RAWEST89</footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+
+        document.querySelectorAll('.rule-title').forEach(title => {
+            title.addEventListener('click', () => {
+                const section = title.parentElement;
+                // Chiude le altre sezioni quando ne apri una (opzionale, stile accordion)
+                // document.querySelectorAll('.rule-section').forEach(s => { if(s !== section) s.classList.remove('active'); });
+                section.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Come Giocare | Five Worlds RP</title>
+
+    <link rel="icon" type="img/png" href="logo.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --orange: #00fbff;
+            --dark: #000000;
+            --card-bg: #050505;
+            --border: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--dark);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; width: 100%; height: 100px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 6%; z-index: 1000;
+            background: rgba(0,0,0,0.95);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .brand { font-weight: 900; font-size: 1.4rem; text-transform: uppercase; }
+        .orange { color: var(--orange); }
+
+        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; opacity: 0.6; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--orange); }
+
+        .play-btn { background: var(--orange); color: black; padding: 12px 30px; border-radius: 8px; font-weight: 900; text-decoration: none; font-size: 0.85rem; }
+        .menu-btn {
+            display: none;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: white;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        /* HEADER */
+        .page-header {
+            padding: 200px 8% 80px;
+            text-align: center;
+            background: linear-gradient(to bottom, #0a0a0a, var(--dark));
+        }
+        .page-header h1 { font-size: 4.5rem; font-weight: 900; text-transform: uppercase; }
+        .pre-title { color: var(--orange); font-weight: 900; letter-spacing: 4px; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 15px; }
+
+        /* TIMELINE (Stile Impero) */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto 150px;
+            padding: 0 20px;
+        }
+
+        /* La linea verticale */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--orange), transparent);
+            top: 0; bottom: 0; left: 50%;
+            margin-left: -1px;
+        }
+
+        .step-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 50px;
+        }
+
+        /* Cerchi sulla linea */
+        .step-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--dark);
+            border: 4px solid var(--orange);
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 10px var(--orange);
+        }
+
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+        .right::after { left: -10px; }
+
+        .step-content {
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid #111;
+            transition: 0.3s;
+        }
+        .step-content:hover { border-color: var(--orange); transform: translateY(-5px); }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(0, 213, 255, 0.426);
+            position: absolute;
+            top: 10px;
+            z-index: 0;
+        }
+        .left .step-number { right: 50px; }
+        .right .step-number { left: 50px; }
+
+        .step-content h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; position: relative; z-index: 1; }
+        .step-content p { color: #888; position: relative; z-index: 1; }
+        .step-content .btn-link { 
+            display: inline-block; margin-top: 20px; color: var(--orange); 
+            text-decoration: none; font-weight: 800; font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .navbar { height: 80px; padding: 0 5%; }
+            .logo-area i { font-size: 1.5rem !important; }
+            .play-btn { padding: 10px 16px; font-size: 0.75rem; }
+            .timeline-container::after { left: 31px; }
+            .step-item { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left !important; }
+            .step-item::after { left: 21px; }
+            .right { left: 0%; }
+            .left .step-number, .right .step-number { left: 80px; right: auto; }
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 80px; right: 5%; left: 5%;
+                flex-direction: column; gap: 12px;
+                background: #050505; padding: 16px; border-radius: 12px;
+                border: 1px solid #111;
+            }
+            .nav-links.show { display: flex; }
+            .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+            .page-header { padding: 160px 6% 60px; }
+            .page-header h1 { font-size: 2.6rem; }
+        }
+
+        footer { padding: 80px 0; border-top: 1px solid #111; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-area">
+            <i class="fa-solid fa-crown" style="font-size: 1.8rem; color: var(--orange);"></i>
+            <div class="logo-text">
+                <span class="brand">Five Worlds <span class="orange">RP</span></span>
+            </div>
+        </div>
+        <ul class="nav-links">
+           <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="progetto.html" class="active">Progetto</a></li>
+            <li><a href="regolamento.html" class="active">Regolamento</a></li>
+            <li><a href="come-giocare.html" class="active">Come Giocare</a></li>
+            <li><a href="whitelist.html" class="active">Whitelist</a></li>
+            <li><a href="staff.html" class="active">Staff</a></li>
+        </ul>
+        <a href="fivem://connect/IP" class="play-btn">GIOCA ORA</a>
+        <button class="menu-btn" type="button" aria-label="Apri menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="page-header">
+        <span class="pre-title" data-aos="fade-up">GUIDA ALL'INIZIO</span>
+        <h1 data-aos="fade-up" data-aos-delay="100">Come <span>Giocare</span></h1>
+    </div>
+
+    <div class="timeline-container">
+        <div class="step-item left" data-aos="fade-right">
+            <div class="step-content">
+                <span class="step-number">01</span>
+                <h3>Acquista GTA V</h3>
+                <p>Per giocare su FiveM devi possedere una copia originale di GTA V su Steam, Epic Games o Rockstar Launcher.</p>
+                <a href="https://store.rockstargames.com/it/game/buy-gta-v?_gl=1*1l03j1g*_ga*NDIwNTc4NzMwLjE3NjEyMTYwNDc.*_ga_PJQ2JYZDQC*czE3Njk4MjAwMDEkbzIkZzEkdDE3Njk4MjAwMTIkajQ5JGwwJGgw" target="_blank" class="btn-link">Vai allo store <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+
+        <div class="step-item right" data-aos="fade-left">
+            <div class="step-content">
+                <span class="step-number">02</span>
+                <h3>Scarica FiveM</h3>
+                <p>Scarica e installa il client FiveM, necessario per connettersi ai server roleplay dedicati.</p>
+                <a href="https://fivem.net/" target="_blank" class="btn-link">Scarica client <i class="fas fa-download"></i></a>
+            </div>
+        </div>
+
+        <div class="step-item left" data-aos="fade-right">
+            <div class="step-content">
+                <span class="step-number">03</span>
+                <h3>Unisciti al Discord</h3>
+                <p>Il nostro server Discord è fondamentale per comunicare, leggere le news e richiedere assistenza.</p>
+                <a href="https://discord.gg/dk6VtX6MGa" class="btn-link">Entra nel Discord <i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+
+        <div class="step-item right" data-aos="fade-left">
+            <div class="step-content">
+                <span class="step-number">04</span>
+                <h3>Leggi il Regolamento</h3>
+                <p>Prima di entrare, assicurati di conoscere le regole del server per evitare sanzioni e goderti il gioco.</p>
+                <a href="regolamento.html" class="btn-link">Vai al regolamento <i class="fas fa-book"></i></a>
+            </div>
+        </div>
+
+        <div class="step-item left" data-aos="fade-right">
+            <div class="step-content">
+                <span class="step-number">05</span>
+                <h3>Connettiti</h3>
+                <p>Avvia FiveM, premi F8 e scrivi: "connect fivem.fiveworldsrps.it" oppure clicca il tasto in alto a destra!</p>
+                <a href="fivem://connect/fivem.fiveworldsrps.it" class="btn-link">Connessione rapida <i class="fas fa-play"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p style="color: #333; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">© 2026 FIVE WORLDS RP — START YOUR STORY</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+        }
+    </script>
+</body>
+</html>

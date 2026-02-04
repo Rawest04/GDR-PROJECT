@@ -1,0 +1,19 @@
+fiveworlds-site/
+│
+├── index.html
+├── progetto.html
+├── come-giocare.html
+├── regolamento.html
+├── staff.html
+│
+├── css/
+│   └── style.css
+│
+├── img/
+│   ├── logo.png
+│   └── hero.jpg
+│
+└── js/
+    └── main.js
+
+'https://cdn.discordapp.com/attachments/1427369168872673425/1466764842294837399/Banner_Discord.png?ex=697deeb5&is=697c9d35&hm=0eba39e6886891f94870b98b1cea60081cba19e94b765ef704d55b4b5bb6ca98&

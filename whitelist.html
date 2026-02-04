@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitelist | Five Worlds RP</title>
+
+    <link rel="icon" type="img/png" href="logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --orange: #00fbff;
+            --dark: #000000;
+            --card-bg: rgba(10, 10, 10, 0.9);
+            --border: rgba(255, 140, 0, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), 
+                        url('https://cdn.discordapp.com/attachments/1427369168872673425/1466764842294837399/Banner_Discord.png?ex=697deeb5&is=697c9d35&hm=0eba39e6886891f94870b98b1cea60081cba19e94b765ef704d55b4b5bb6ca98&');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; width: 100%; height: 90px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 6%; z-index: 1000;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .brand { font-weight: 900; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; }
+        .orange { color: var(--orange); }
+
+        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; opacity: 0.6; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--orange); }
+
+        .play-btn { background: var(--orange); color: black; padding: 10px 25px; border-radius: 5px; font-weight: 800; text-decoration: none; font-size: 0.8rem; }
+        .menu-btn {
+            display: none;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: transparent;
+            color: white;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        /* WHITELIST CONTENT */
+        .whitelist-container {
+            padding: 150px 20px 100px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 50px;
+            width: 100%;
+            max-width: 850px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+        }
+
+        h1 { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; text-align: center; }
+        .subtitle { text-align: center; color: #777; font-weight: 600; margin-bottom: 40px; }
+
+        .form-section-title {
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 40px 0 20px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .form-section-title::after { content: ''; flex: 1; height: 1px; background: rgba(255, 140, 0, 0.2); }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .full-width { grid-column: span 2; }
+
+        .input-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: #555;
+            letter-spacing: 1px;
+        }
+
+        .input-group input, .input-group textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus, .input-group textarea:focus {
+            border-color: var(--orange);
+            background: rgba(255, 140, 0, 0.05);
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.1);
+        }
+
+        .btn-send {
+            width: 100%;
+            margin-top: 50px;
+            padding: 20px;
+            background: var(--orange);
+            border: none;
+            border-radius: 12px;
+            color: black;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-send:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+            filter: brightness(1.1);
+        }
+
+        #status-msg {
+            margin-top: 25px;
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            display: none;
+            font-weight: 700;
+        }
+
+        footer { text-align: center; padding: 50px; opacity: 0.3; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            body { background-attachment: scroll; }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+            .glass-card { padding: 30px; }
+            .navbar { height: 80px; padding: 0 5%; }
+            .play-btn { padding: 10px 16px; font-size: 0.75rem; }
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 80px; right: 5%; left: 5%;
+                flex-direction: column; gap: 12px;
+                background: #050505; padding: 16px; border-radius: 12px;
+                border: 1px solid #111;
+            }
+            .nav-links.show { display: flex; }
+            .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-area">
+            <i class="fa-solid fa-crown" style="font-size: 1.8rem; color: var(--orange);"></i>
+            <div class="logo-text">
+                <span class="brand">Five Worlds <span class="orange">RP</span></span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="progetto.html" class="active">Progetto</a></li>
+            <li><a href="regolamento.html" class="active">Regolamento</a></li>
+            <li><a href="come-giocare.html" class="active">Come Giocare</a></li>
+            <li><a href="whitelist.html" class="active">Whitelist</a></li>
+            <li><a href="staff.html" class="active">Staff</a></li>
+        </ul>
+        <a href="fivem://connect/IP" class="play-btn">GIOCA ORA</a>
+        <button class="menu-btn" type="button" aria-label="Apri menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+    
+    <main class="whitelist-container">
+        <div class="glass-card" data-aos="zoom-in">
+            <h1>Richiesta <span>Whitelist</span></h1>
+            <p class="subtitle">Entra a far parte della nostra community d'élite.</p>
+
+            <form id="whitelistForm">
+                <div class="form-section-title">Informazioni OOC (Real Life)</div>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Nome Reale</label>
+                        <input type="text" id="ooc_nome" placeholder="Es. Mario Rossi" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Età</label>
+                        <input type="number" id="ooc_eta" placeholder="Es. 20" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Steam HEX</label>
+                        <input type="text" id="ooc_hex" placeholder="steam:1100001..." required>
+                    </div>
+                    <div class="input-group">
+                        <label>Link Profilo Steam</label>
+                        <input type="url" id="ooc_steam_url" placeholder="https://steamcommunity.com/..." required>
+                    </div>
+                    <div class="input-group full-width">
+                        <label>Esperienze Precedenti</label>
+                        <textarea id="ooc_exp" placeholder="Descrivi brevemente i server dove hai giocato e le ore totali..." rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section-title">Informazioni IC (In Game)</div>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Nome Personaggio</label>
+                        <input type="text" id="ic_nome" placeholder="Es. Tony Montana" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Età Personaggio</label>
+                        <input type="number" id="ic_eta" placeholder="Es. 35" required>
+                    </div>
+                    <div class="input-group full-width">
+                        <label>Storia del Personaggio (Background)</label>
+                        <textarea id="ic_bg" placeholder="Raccontaci chi è il tuo personaggio e quali sono i suoi obiettivi a Los Santos..." rows="6" required></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-send">Invia Candidatura</button>
+                <div id="status-msg"></div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 Five Worlds RP — Elite Roleplay Experience — RAWEST89
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        const WEBHOOK_URL = "https://discord.com/api/webhooks/1466947448609177707/fs-oP7Za5VMhHdFbqjtODCbDl2HwNQiuXbQJuzWj2pFRO77nWOIN3hAAvAlVFWc51Wwk";
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+        }
+
+        document.getElementById('whitelistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const status = document.getElementById('status-msg');
+            const btn = e.target.querySelector('button');
+            
+            btn.disabled = true;
+            btn.innerText = "TRASMISSIONE IN CORSO...";
+
+            const embedData = {
+                username: "Five Worlds Whitelist",
+                embeds: [{
+                    title: "📩 NUOVA RICHIESTA WHITELIST",
+                    color: 16746496, // Arancione Impero
+                    fields: [
+                        { name: "👤 UTENTE OOC", value: `**Nome:** ${document.getElementById('ooc_nome').value}\n**Età:** ${document.getElementById('ooc_eta').value}`, inline: true },
+                        { name: "🆔 IDENTIFICATIVI", value: `**HEX:** \`${document.getElementById('ooc_hex').value}\`\n[Profilo Steam](${document.getElementById('ooc_steam_url').value})`, inline: true },
+                        { name: "📖 ESPERIENZA", value: document.getElementById('ooc_exp').value },
+                        { name: "🎭 PERSONAGGIO IC", value: `**Nome:** ${document.getElementById('ic_nome').value}\n**Età:** ${document.getElementById('ic_eta').value}` },
+                        { name: "📜 STORIA PG", value: document.getElementById('ic_bg').value }
+                    ],
+                    footer: { text: "Candidatura ricevuta dal sito ufficiale" },
+                    timestamp: new Date()
+                }]
+            };
+
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(embedData)
+            })
+            .then(response => {
+                status.style.display = "block";
+                if (response.ok) {
+                    status.style.background = "rgba(46, 204, 113, 0.1)";
+                    status.style.color = "#2ecc71";
+                    status.innerText = "✅ RICHIESTA INVIATA! Controlla Discord per l'esito.";
+                    e.target.reset();
+                } else { throw new Error(); }
+            })
+            .catch(() => {
+                status.style.display = "block";
+                status.style.background = "rgba(231, 76, 60, 0.1)";
+                status.style.color = "#e74c3c";
+                status.innerText = "❌ ERRORE! Riprova più tardi.";
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerText = "INVIA CANDIDATURA";
+            });
+        });
+    </script>
+
+</body>
+</html>
