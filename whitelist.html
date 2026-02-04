@@ -217,10 +217,6 @@
                 <div class="form-section-title">Informazioni OOC (Real Life)</div>
                 <div class="form-grid">
                     <div class="input-group">
-                        <label>Nome Reale</label>
-                        <input type="text" id="ooc_nome" placeholder="Es. Mario Rossi" required>
-                    </div>
-                    <div class="input-group">
                         <label>Età</label>
                         <input type="number" id="ooc_eta" placeholder="Es. 20" required>
                     </div>
@@ -251,6 +247,14 @@
                     <div class="input-group full-width">
                         <label>Storia del Personaggio (Background)</label>
                         <textarea id="ic_bg" placeholder="Raccontaci chi è il tuo personaggio e quali sono i suoi obiettivi a Los Santos..." rows="6" required></textarea>
+                    </div>
+                    <div class="input-group full-width">
+                        <label>Vizzi/Dipendenze</label>
+                        <textarea id="ic_vizzi" placeholder="Raccontaci eventuali vizzi o dipendenze del tuo personaggio..." rows="6" required></textarea>
+                    </div>
+                    <div class="input-group full-width">
+                        <label>Precedenti Penali</label>
+                        <textarea id="ic_penali" placeholder="Raccontaci eventuali precedenti penali del tuo personaggio..." rows="6" required></textarea>
                     </div>
                 </div>
 
@@ -290,13 +294,15 @@
                 username: "Five Worlds Whitelist",
                 embeds: [{
                     title: "📩 NUOVA RICHIESTA WHITELIST",
-                    color: 16746496, // Arancione Impero
+                    color: 64511, // Ciano
                     fields: [
-                        { name: "👤 UTENTE OOC", value: `**Nome:** ${document.getElementById('ooc_nome').value}\n**Età:** ${document.getElementById('ooc_eta').value}`, inline: true },
+                        { name: "👤 UTENTE OOC", value: `**Età:** ${document.getElementById('ooc_eta').value}`, inline: true },
                         { name: "🆔 IDENTIFICATIVI", value: `**HEX:** \`${document.getElementById('ooc_hex').value}\`\n[Profilo Steam](${document.getElementById('ooc_steam_url').value})`, inline: true },
                         { name: "📖 ESPERIENZA", value: document.getElementById('ooc_exp').value },
                         { name: "🎭 PERSONAGGIO IC", value: `**Nome:** ${document.getElementById('ic_nome').value}\n**Età:** ${document.getElementById('ic_eta').value}` },
-                        { name: "📜 STORIA PG", value: document.getElementById('ic_bg').value }
+                        { name: "📜 STORIA PG", value: document.getElementById('ic_bg').value },
+                        { name: "💊 VIZZI/DIPENDENZE", value: document.getElementById('ic_vizzi').value },
+                        { name: "⚖️ PRECEDENTI PENALI", value: document.getElementById('ic_penali').value }
                     ],
                     footer: { text: "Candidatura ricevuta dal sito ufficiale" },
                     timestamp: new Date()
@@ -332,3 +338,4 @@
 
 </body>
 </html>
+
