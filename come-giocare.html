@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Come Giocare | Coming Soon</title>
 
-    <link rel="icon" type="img/png" href="logo.png">
+    <link rel="icon" type="image/png" href="logo.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* Font GTA Logo */
         @font-face {
             font-family: 'Pricedown';
             src: url('https://db.onlinewebfonts.com/t/21539499806ad93f6bd9e928229b0116.woff2') format('woff2');
@@ -34,65 +33,58 @@
             color: white;
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.4;
         }
 
-        /* NAVBAR */
+        /* NAVBAR MOBILE-READY */
         .navbar {
-            position: fixed; top: 0; width: 100%; height: 100px;
+            position: fixed; top: 0; width: 100%; height: 80px;
             display: flex; align-items: center; justify-content: space-between;
-            padding: 0 6%; z-index: 1000;
+            padding: 0 5%; z-index: 1000;
             background: rgba(0,0,0,0.95);
             border-bottom: 1px solid var(--border);
             backdrop-filter: blur(10px);
         }
 
-        .logo-area { display: flex; align-items: center; gap: 12px; }
-        .brand { font-family: var(--gta-font); font-size: 1.8rem; text-transform: capitalize; }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .brand { font-family: var(--gta-font); font-size: clamp(1.2rem, 4vw, 1.8rem); text-transform: capitalize; }
         .orange { color: var(--orange); }
 
-        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links { display: flex; list-style: none; gap: 20px; }
         .nav-links a { 
-            font-family: var(--gta-sub);
-            color: white; text-decoration: none; font-size: 0.85rem; 
-            text-transform: uppercase; opacity: 0.6; transition: 0.3s;
-            font-style: italic;
+            font-family: var(--gta-sub); color: white; text-decoration: none; 
+            font-size: 0.75rem; text-transform: uppercase; opacity: 0.6; 
+            transition: 0.3s; font-style: italic;
         }
         .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--orange); }
 
         .play-btn { 
-            font-family: var(--gta-sub);
-            background: var(--orange); color: black; padding: 12px 30px; 
-            border-radius: 4px; font-weight: 900; text-decoration: none; 
-            font-size: 0.85rem; font-style: italic; transition: 0.3s;
+            font-family: var(--gta-sub); background: var(--orange); color: black; 
+            padding: 8px 20px; border-radius: 4px; font-weight: 900; 
+            text-decoration: none; font-size: 0.75rem; font-style: italic;
         }
-        .play-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-        /* HEADER */
+        /* HEADER RESPONSIVE */
         .page-header {
-            padding: 200px 8% 80px;
+            padding: 140px 5% 40px;
             text-align: center;
             background: linear-gradient(to bottom, #0c0c0c, var(--dark));
         }
         .page-header h1 { 
             font-family: var(--gta-font);
-            font-size: clamp(3rem, 8vw, 6rem); 
-            text-transform: capitalize; 
+            font-size: clamp(2.5rem, 10vw, 5.5rem); 
             text-shadow: 3px 3px 0px rgba(0,0,0,0.8);
         }
-        .page-header h1 span { color: var(--orange); }
         .pre-title { 
-            font-family: var(--gta-sub);
-            color: var(--orange); letter-spacing: 4px; font-size: 0.9rem; 
-            text-transform: uppercase; display: block; margin-bottom: 15px;
-            font-style: italic;
+            font-family: var(--gta-sub); color: var(--orange); letter-spacing: 2px; 
+            font-size: 0.7rem; text-transform: uppercase; display: block; margin-bottom: 10px;
         }
 
-        /* TIMELINE */
+        /* TIMELINE OTTIMIZZATA */
         .timeline-container {
             position: relative;
-            max-width: 1000px;
-            margin: 50px auto 150px;
+            max-width: 900px;
+            margin: 40px auto 100px;
             padding: 0 20px;
         }
 
@@ -106,87 +98,79 @@
         }
 
         .step-item {
-            padding: 20px 40px;
+            padding: 10px 30px;
             position: relative;
             width: 50%;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .step-item::after {
             content: '';
             position: absolute;
-            width: 16px;
-            height: 16px;
-            right: -8px;
-            background-color: var(--orange);
-            top: 35px;
-            border-radius: 2px; /* Quadrato inclinato stile HUD GTA */
-            transform: rotate(45deg);
-            z-index: 1;
+            width: 12px; height: 12px;
+            right: -6px; background-color: var(--orange);
+            top: 35px; border-radius: 2px;
+            transform: rotate(45deg); z-index: 1;
             box-shadow: 0 0 10px var(--orange);
         }
 
         .left { left: 0; text-align: right; }
         .right { left: 50%; text-align: left; }
-        .right::after { left: -8px; }
+        .right::after { left: -6px; }
 
         .step-content {
-            padding: 35px;
-            background: #080808;
-            border-radius: 4px;
-            border: 1px solid #1a1a1a;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
+            padding: 25px; background: #080808;
+            border-radius: 4px; border: 1px solid #1a1a1a;
+            transition: 0.3s; position: relative; overflow: hidden;
         }
-        .step-content:hover { border-color: var(--orange); transform: scale(1.02); }
+        .step-content:hover { border-color: var(--orange); }
 
         .step-number {
-            font-family: var(--gta-font);
-            font-size: 4rem;
-            color: rgba(0, 251, 255, 0.1);
-            position: absolute;
-            top: -10px;
-            z-index: 0;
+            font-family: var(--gta-font); font-size: 3rem;
+            color: rgba(0, 251, 255, 0.08); position: absolute;
+            top: -5px; z-index: 0;
         }
-        .left .step-number { right: 20px; }
-        .right .step-number { left: 20px; }
+        .left .step-number { right: 15px; }
+        .right .step-number { left: 15px; }
 
         .step-content h3 { 
-            font-family: var(--gta-sub);
-            font-size: 1.6rem; margin-bottom: 15px; 
-            position: relative; z-index: 1; 
-            text-transform: uppercase;
-            font-style: italic;
+            font-family: var(--gta-sub); font-size: 1.2rem; 
+            margin-bottom: 10px; position: relative; z-index: 1; text-transform: uppercase;
         }
-        .step-content p { color: #aaa; position: relative; z-index: 1; font-weight: 600; }
+        .step-content p { color: #888; position: relative; z-index: 1; font-size: 0.9rem; }
         
         .btn-link { 
-            font-family: var(--gta-sub);
-            display: inline-block; margin-top: 20px; color: var(--orange); 
-            text-decoration: none; font-size: 0.85rem;
-            text-transform: uppercase; font-style: italic;
-            border: 1px solid var(--orange);
-            padding: 8px 15px;
-            transition: 0.3s;
+            font-family: var(--gta-sub); display: inline-block; margin-top: 15px; 
+            color: var(--orange); text-decoration: none; font-size: 0.7rem;
+            text-transform: uppercase; border: 1px solid var(--orange);
+            padding: 6px 12px; transition: 0.3s;
         }
         .btn-link:hover { background: var(--orange); color: black; }
 
-        /* RESPONSIVE */
+        /* REGOLE MOBILE */
         @media (max-width: 768px) {
-            .navbar { height: 80px; }
             .nav-links { display: none; }
-            .timeline-container::after { left: 31px; }
-            .step-item { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left !important; }
-            .step-item::after { left: 23px; }
+            .navbar { height: 70px; }
+            
+            .timeline-container::after { left: 30px; }
+            .step-item { 
+                width: 100%; 
+                padding-left: 60px; 
+                padding-right: 10px; 
+                text-align: left !important; 
+                margin-bottom: 30px;
+            }
+            .step-item::after { left: 24px; top: 30px; }
             .right { left: 0%; }
-            .left .step-number, .right .step-number { left: 20px; right: auto; }
-            .page-header h1 { font-size: 3rem; }
+            .left .step-number, .right .step-number { left: 15px; right: auto; font-size: 2.5rem; }
+            
+            .step-content { padding: 20px; }
+            .step-content h3 { font-size: 1.1rem; }
         }
 
         footer { 
-            padding: 80px 0; border-top: 1px solid #111; text-align: center;
-            font-family: var(--gta-sub); font-style: italic; color: #444;
+            padding: 60px 0; border-top: 1px solid #111; text-align: center;
+            font-family: var(--gta-sub); font-style: italic; color: #444; font-size: 0.7rem;
         }
     </style>
 </head>
@@ -194,9 +178,7 @@
 
     <header class="navbar">
         <div class="logo-area">
-            <div class="logo-text">
-                <span class="brand">Coming Soon <span class="orange">RP</span></span>
-            </div>
+            <span class="brand">Coming Soon <span class="orange">RP</span></span>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -205,7 +187,7 @@
             <li><a href="come-giocare.html" class="active">Come Giocare</a></li>
             <li><a href="whitelist.html">Whitelist</a></li>
         </ul>
-        <a href="fivem://connect/IP" class="play-btn">GIOCA ORA</a>
+        <a href="fivem://connect/1469263320417566802" class="play-btn">GIOCA ORA</a>
     </header>
 
     <div class="page-header">
@@ -237,7 +219,7 @@
                 <span class="step-number">03</span>
                 <h3>Unisciti al Discord</h3>
                 <p>Il cuore della nostra community. Qui trovi assistenza e news h24.</p>
-                <a href="https://discord.gg/nn38kJz4a" class="btn-link">Entra nel Discord <i class="fab fa-discord"></i></a>
+                <a href="https://discord.gg/nn38kJz4a" target="_blank" class="btn-link">Entra nel Discord <i class="fab fa-discord"></i></a>
             </div>
         </div>
 
@@ -245,7 +227,7 @@
             <div class="step-content">
                 <span class="step-number">04</span>
                 <h3>Regolamento</h3>
-                <p>Leggi le regole del server per garantire un'esperienza di gioco di alto livello.</p>
+                <p>Leggi le regole per garantire un'esperienza di gioco di alto livello.</p>
                 <a href="regolamento.html" class="btn-link">Leggi regole <i class="fas fa-book"></i></a>
             </div>
         </div>
@@ -254,8 +236,8 @@
             <div class="step-content">
                 <span class="step-number">05</span>
                 <h3>Connettiti</h3>
-                <p>Premi F8 in gioco e scrivi: "connect IP_DEL_SERVER" per iniziare!</p>
-                <a href="fivem://connect/" class="btn-link">Start Game <i class="fas fa-play"></i></a>
+                <p>Premi F8 in gioco e scrivi connect seguito dal nostro ID per iniziare!</p>
+                <a href="fivem://connect/1469263320417566802" class="btn-link">Start Game <i class="fas fa-play"></i></a>
             </div>
         </div>
     </div>
@@ -266,7 +248,7 @@
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 800, once: true });
     </script>
 </body>
 </html>
