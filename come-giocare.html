@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Progetto | GDR PROJECT</title>
+    <title>Come Giocare | Coming Soon</title>
 
     <link rel="icon" type="image/png" href="logo.png">
     
@@ -18,12 +18,10 @@
         }
 
         :root {
-            --gold: #D4AF37;
-            --gold-bright: #FFD700;
+            --orange: #00fbff;
             --dark: #000000;
-            --white: #ffffff;
-            --card-bg: #0a0a0a;
-            --border: rgba(212, 175, 55, 0.15);
+            --card-bg: #050505;
+            --border: rgba(255, 255, 255, 0.05);
             --gta-font: 'Pricedown', sans-serif;
             --gta-sub: 'Archivo Black', sans-serif;
         }
@@ -32,13 +30,13 @@
         
         body {
             background-color: var(--dark);
-            color: var(--white);
+            color: white;
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.4;
         }
 
-        /* NAVBAR */
+        /* NAVBAR MOBILE-READY */
         .navbar {
             position: fixed; top: 0; width: 100%; height: 80px;
             display: flex; align-items: center; justify-content: space-between;
@@ -49,99 +47,130 @@
         }
 
         .logo-area { display: flex; align-items: center; gap: 10px; }
-        .brand { font-family: var(--gta-font); font-size: 1.8rem; letter-spacing: 1px; }
-        .gold-text { color: var(--gold); }
+        .brand { font-family: var(--gta-font); font-size: clamp(1.2rem, 4vw, 1.8rem); text-transform: capitalize; }
+        .orange { color: var(--orange); }
 
-        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links { display: flex; list-style: none; gap: 20px; }
         .nav-links a { 
             font-family: var(--gta-sub); color: white; text-decoration: none; 
             font-size: 0.75rem; text-transform: uppercase; opacity: 0.6; 
             transition: 0.3s; font-style: italic;
         }
-        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold); }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--orange); }
 
         .play-btn { 
-            font-family: var(--gta-sub); background: var(--gold); color: black; 
-            padding: 10px 22px; border-radius: 4px; font-weight: 900; 
+            font-family: var(--gta-sub); background: var(--orange); color: black; 
+            padding: 8px 20px; border-radius: 4px; font-weight: 900; 
             text-decoration: none; font-size: 0.75rem; font-style: italic;
-            transition: 0.3s;
         }
-        .play-btn:hover { background: var(--gold-bright); transform: scale(1.05); }
 
-        /* HEADER */
-        .project-header {
-            padding: 160px 5% 80px;
+        /* HEADER RESPONSIVE */
+        .page-header {
+            padding: 140px 5% 40px;
             text-align: center;
-            background: linear-gradient(to bottom, #0f0f0f, var(--dark));
-            border-bottom: 1px solid var(--border);
+            background: linear-gradient(to bottom, #0c0c0c, var(--dark));
         }
-        .project-header h1 { 
+        .page-header h1 { 
             font-family: var(--gta-font);
             font-size: clamp(2.5rem, 10vw, 5.5rem); 
-            text-shadow: 4px 4px 0px rgba(0,0,0,1);
-            margin-top: 10px;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.8);
         }
-        .project-header h1 span { color: var(--gold); }
         .pre-title { 
-            font-family: var(--gta-sub); color: var(--gold); letter-spacing: 3px; 
-            font-size: 0.75rem; text-transform: uppercase; display: block; font-style: italic;
+            font-family: var(--gta-sub); color: var(--orange); letter-spacing: 2px; 
+            font-size: 0.7rem; text-transform: uppercase; display: block; margin-bottom: 10px;
         }
 
-        /* CONTENT SECTIONS */
-        .content-section {
-            padding: 100px 10%;
-            display: flex;
-            align-items: center;
-            gap: 60px;
+        /* TIMELINE OTTIMIZZATA */
+        .timeline-container {
             position: relative;
+            max-width: 900px;
+            margin: 40px auto 100px;
+            padding: 0 20px;
         }
 
-        .content-section:nth-child(even) { 
-            flex-direction: row-reverse; 
-            background: rgba(212, 175, 55, 0.02); 
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--orange), transparent);
+            top: 0; bottom: 0; left: 50%;
+            margin-left: -1px;
         }
 
-        .content-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
+        .step-item {
+            padding: 10px 30px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 40px;
         }
 
-        .content-image i {
-            font-size: clamp(5rem, 15vw, 8rem);
-            color: var(--gold);
-            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+        .step-item::after {
+            content: '';
+            position: absolute;
+            width: 12px; height: 12px;
+            right: -6px; background-color: var(--orange);
+            top: 35px; border-radius: 2px;
+            transform: rotate(45deg); z-index: 1;
+            box-shadow: 0 0 10px var(--orange);
         }
 
-        .content-text { flex: 1.5; }
-        .content-text h2 { 
-            font-family: var(--gta-sub);
-            font-size: clamp(1.8rem, 5vw, 2.8rem); 
-            margin-bottom: 25px; text-transform: uppercase; 
-            font-style: italic; line-height: 1.1;
-        }
-        .content-text h2 span { color: var(--gold); }
-        .content-text p { font-size: 1.05rem; color: #ccc; margin-bottom: 20px; font-weight: 400; }
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+        .right::after { left: -6px; }
 
-        /* FOOTER */
-        footer { padding: 60px 0; border-top: 1px solid #111; text-align: center; margin-top: 40px; }
-        .footer-copy { 
-            font-family: var(--gta-sub); color: #333; font-size: 0.7rem;
-            text-transform: uppercase; letter-spacing: 1px; font-style: italic;
+        .step-content {
+            padding: 25px; background: #080808;
+            border-radius: 4px; border: 1px solid #1a1a1a;
+            transition: 0.3s; position: relative; overflow: hidden;
         }
+        .step-content:hover { border-color: var(--orange); }
 
-        /* MOBILE */
-        @media (max-width: 992px) {
-            .nav-links, .desktop-only { display: none; }
-            .content-section { 
-                flex-direction: column !important; 
-                text-align: center; 
-                padding: 60px 8%; 
-                gap: 40px; 
+        .step-number {
+            font-family: var(--gta-font); font-size: 3rem;
+            color: rgba(0, 251, 255, 0.08); position: absolute;
+            top: -5px; z-index: 0;
+        }
+        .left .step-number { right: 15px; }
+        .right .step-number { left: 15px; }
+
+        .step-content h3 { 
+            font-family: var(--gta-sub); font-size: 1.2rem; 
+            margin-bottom: 10px; position: relative; z-index: 1; text-transform: uppercase;
+        }
+        .step-content p { color: #888; position: relative; z-index: 1; font-size: 0.9rem; }
+        
+        .btn-link { 
+            font-family: var(--gta-sub); display: inline-block; margin-top: 15px; 
+            color: var(--orange); text-decoration: none; font-size: 0.7rem;
+            text-transform: uppercase; border: 1px solid var(--orange);
+            padding: 6px 12px; transition: 0.3s;
+        }
+        .btn-link:hover { background: var(--orange); color: black; }
+
+        /* REGOLE MOBILE */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .navbar { height: 70px; }
+            
+            .timeline-container::after { left: 30px; }
+            .step-item { 
+                width: 100%; 
+                padding-left: 60px; 
+                padding-right: 10px; 
+                text-align: left !important; 
+                margin-bottom: 30px;
             }
-            .content-text h2 { font-size: 2.2rem; }
+            .step-item::after { left: 24px; top: 30px; }
+            .right { left: 0%; }
+            .left .step-number, .right .step-number { left: 15px; right: auto; font-size: 2.5rem; }
+            
+            .step-content { padding: 20px; }
+            .step-content h3 { font-size: 1.1rem; }
+        }
+
+        footer { 
+            padding: 60px 0; border-top: 1px solid #111; text-align: center;
+            font-family: var(--gta-sub); font-style: italic; color: #444; font-size: 0.7rem;
         }
     </style>
 </head>
@@ -149,57 +178,72 @@
 
     <header class="navbar">
         <div class="logo-area">
-            <span class="brand" style="color: white;">GDR <span class="gold-text">PROJECT</span></span>
+            <span class="brand">Coming Soon <span class="orange">RP</span></span>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="progetto.html" class="active">PROGETTO</a></li>
-            <li><a href="regolamento.html">REGOLAMENTO</a></li>
-            <li><a href="whitelist.html">WHITELIST</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="progetto.html">Progetto</a></li>
+            <li><a href="regolamento.html">Regolamento</a></li>
+            <li><a href="come-giocare.html" class="active">Come Giocare</a></li>
+            <li><a href="whitelist.html">Whitelist</a></li>
         </ul>
-        <a href="fivem://connect/1469263320417566802" class="play-btn desktop-only">GIOCA ORA</a>
+        <a href="fivem://connect/1469263320417566802" class="play-btn">GIOCA ORA</a>
     </header>
 
-    <div class="project-header">
-        <span class="pre-title" data-aos="fade-up">INFORMAZIONI GENERALI</span>
-        <h1 data-aos="fade-up" data-aos-delay="100">Il Nostro <span>Progetto</span></h1>
+    <div class="page-header">
+        <span class="pre-title" data-aos="fade-up">MISSIONE: INIZIARE A GIOCARE</span>
+        <h1 data-aos="fade-up" data-aos-delay="100">Come <span>Giocare</span></h1>
     </div>
 
-    <section class="content-section">
-        <div class="content-image" data-aos="zoom-in">
-            <i class="fa-solid fa-rocket"></i>
+    <div class="timeline-container">
+        <div class="step-item left" data-aos="fade-right">
+            <div class="step-content">
+                <span class="step-number">01</span>
+                <h3>Acquista GTA V</h3>
+                <p>Possiedi una copia originale di GTA V su Steam, Epic o Rockstar Launcher.</p>
+                <a href="https://store.rockstargames.com/it/game/buy-gta-v" target="_blank" class="btn-link">Vai allo store <i class="fas fa-external-link-alt"></i></a>
+            </div>
         </div>
-        <div class="content-text" data-aos="fade-up">
-            <h2>La nostra <span>Mission</span></h2>
-            <p>GDR Project nasce per ridefinire gli standard del RolePlay italiano. Il nostro obiettivo è offrire una piattaforma dove la qualità dell'interpretazione e la stabilità tecnica si incontrano per creare un'esperienza immersiva senza precedenti.</p>
-            <p>Abbiamo creato un ambiente meritocratico dove ogni cittadino ha la possibilità di costruire il proprio percorso, supportato da sistemi dinamici e un regolamento chiaro che tutela il divertimento di tutti.</p>
-        </div>
-    </section>
 
-    <section class="content-section">
-        <div class="content-image" data-aos="zoom-in">
-            <i class="fa-solid fa-microchip"></i>
+        <div class="step-item right" data-aos="fade-left">
+            <div class="step-content">
+                <span class="step-number">02</span>
+                <h3>Scarica FiveM</h3>
+                <p>Scarica il client necessario per connettersi ai server roleplay dedicati.</p>
+                <a href="https://fivem.net/" target="_blank" class="btn-link">Scarica client <i class="fas fa-download"></i></a>
+            </div>
         </div>
-        <div class="content-text" data-aos="fade-up">
-            <h2>Tecnologia <span>All'avanguardia</span></h2>
-            <p>La fluidità è la nostra priorità. Utilizziamo hardware dedicato di ultima generazione per garantire prestazioni ottimali e FPS stabili, riducendo al minimo ogni tipo di latenza durante le sessioni di gioco.</p>
-            <p>Grazie a script esclusivi e ottimizzati, offriamo funzionalità uniche: dall'economia reale e bilanciata alla gestione avanzata di veicoli e proprietà, ogni dettaglio è pensato per rendere il mondo di gioco vivo e reattivo.</p>
-        </div>
-    </section>
 
-    <section class="content-section">
-        <div class="content-image" data-aos="zoom-in">
-            <i class="fa-solid fa-handshake-angle"></i>
+        <div class="step-item left" data-aos="fade-right">
+            <div class="step-content">
+                <span class="step-number">03</span>
+                <h3>Unisciti al Discord</h3>
+                <p>Il cuore della nostra community. Qui trovi assistenza e news h24.</p>
+                <a href="https://discord.gg/zvAXeA6dUY" target="_blank" class="btn-link">Entra nel Discord <i class="fab fa-discord"></i></a>
+            </div>
         </div>
-        <div class="content-text" data-aos="fade-up">
-            <h2>Community <span>D'Elite</span></h2>
-            <p>Un progetto cresce solo grazie alla sua community. Lo Staff di GDR Project lavora costantemente per ascoltare i feedback dei player, implementando nuove feature e risolvendo criticità in tempi record.</p>
-            <p>Offriamo un supporto costante tramite Discord, eventi periodici e una gestione trasparente. Qui non sei solo un numero, ma parte integrante di un ecosistema in continua evoluzione.</p>
+
+        <div class="step-item right" data-aos="fade-left">
+            <div class="step-content">
+                <span class="step-number">04</span>
+                <h3>Regolamento</h3>
+                <p>Leggi le regole per garantire un'esperienza di gioco di alto livello.</p>
+                <a href="regolamento.html" class="btn-link">Leggi regole <i class="fas fa-book"></i></a>
+            </div>
         </div>
-    </section>
+
+        <div class="step-item left" data-aos="fade-right">
+            <div class="step-content">
+                <span class="step-number">05</span>
+                <h3>Connettiti</h3>
+                <p>Premi F8 in gioco e scrivi connect seguito dal nostro ID per iniziare!</p>
+                <a href="fivem://connect/1469263320417566802" class="btn-link">Start Game <i class="fas fa-play"></i></a>
+            </div>
+        </div>
+    </div>
 
     <footer>
-        <p class="footer-copy">© 2026 GDR PROJECT — ELITE ROLEPLAY EXPERIENCE — DEVELOPED BY RAWEST89</p>
+        <p>© 2026 COMING SOON — ELITE ROLEPLAY — RAWEST89</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
