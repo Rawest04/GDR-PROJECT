@@ -12,7 +12,6 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* Font GTA Logo */
         @font-face {
             font-family: 'Pricedown';
             src: url('https://db.onlinewebfonts.com/t/21539499806ad93f6bd9e928229b0116.woff2') format('woff2');
@@ -31,147 +30,114 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.95)), 
-                        url('https://cdn.discordapp.com/attachments/1211714887731122324/1469661183027187752/Gemini_Generated_Image_75zcot75zcot75zc.png?ex=69887823&is=698726a3&hm=50d3e2e13a2e5a60a8f7087e0496cbe2d502d784c11e4a10d4fb6395284283a8&');
+            background: linear-gradient(rgba(0,0,0,0.92), rgba(0,0,0,0.96)), 
+                        url('https://cdn.discordapp.com/attachments/1211714887731122324/1469661183027187752/Gemini_Generated_Image_75zcot75zcot75zc.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: white;
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
+            line-height: 1.4;
             overflow-x: hidden;
         }
 
-        /* NAVBAR */
+        /* NAVBAR MOBILE-READY */
         .navbar {
-            position: fixed; top: 0; width: 100%; height: 90px;
+            position: fixed; top: 0; width: 100%; height: 70px;
             display: flex; align-items: center; justify-content: space-between;
-            padding: 0 6%; z-index: 1000;
+            padding: 0 5%; z-index: 1000;
             background: rgba(0,0,0,0.95);
             border-bottom: 2px solid var(--border);
             backdrop-filter: blur(10px);
         }
 
-        .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .brand { font-family: var(--gta-font); font-size: 1.8rem; color: white; text-transform: capitalize; }
+        .logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .brand { font-family: var(--gta-font); font-size: clamp(1.2rem, 4vw, 1.7rem); color: white; text-transform: capitalize; }
         .cyan { color: var(--cyan); }
 
         .back-home {
-            font-family: var(--gta-sub);
-            color: var(--cyan);
-            text-decoration: none;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            font-style: italic;
-            border: 1px solid var(--border);
-            padding: 8px 15px;
-            transition: 0.3s;
+            font-family: var(--gta-sub); color: var(--cyan); text-decoration: none;
+            font-size: 0.65rem; text-transform: uppercase; border: 1px solid var(--border);
+            padding: 6px 12px; transition: 0.3s; font-style: italic;
         }
 
-        .back-home:hover { background: var(--cyan); color: black; }
-
-        /* HEADER PAGINA */
-        .rules-header {
-            padding: 180px 10% 60px;
-            text-align: center;
-        }
-
+        /* HEADER */
+        .rules-header { padding: 120px 5% 40px; text-align: center; }
         .rules-header h1 { 
-            font-family: var(--gta-font);
-            font-size: clamp(2.5rem, 6vw, 4.5rem); 
-            text-transform: capitalize;
+            font-family: var(--gta-font); font-size: clamp(2.2rem, 8vw, 4rem); 
             text-shadow: 3px 3px 0px rgba(0,0,0,0.8);
         }
         .rules-header h1 span { color: var(--cyan); }
         .rules-header p { 
-            font-family: var(--gta-sub);
-            color: #666; font-size: 0.9rem; margin-top: 10px; 
+            font-family: var(--gta-sub); color: #666; font-size: 0.7rem; margin-top: 5px; 
             text-transform: uppercase; font-style: italic; letter-spacing: 1px;
         }
 
-        /* CONTENUTI REGOLAMENTO */
-        .rules-container { max-width: 1000px; margin: 0 auto 100px; padding: 0 20px; }
+        /* CONTAINER REGOLAMENTO */
+        .rules-container { max-width: 900px; margin: 0 auto 60px; padding: 0 15px; }
 
         .rule-section {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            margin-bottom: 10px;
-            overflow: hidden;
-            transition: 0.3s;
+            background: var(--card-bg); border: 1px solid var(--border);
+            margin-bottom: 8px; overflow: hidden; transition: 0.3s;
         }
-
-        .rule-section:hover { border-color: var(--cyan); box-shadow: 0 0 15px rgba(0, 251, 255, 0.1); }
 
         .rule-title {
-            padding: 25px 35px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--gta-sub);
-            text-transform: uppercase;
-            font-style: italic;
-            letter-spacing: 1px;
-            background: rgba(255,255,255,0.02);
-            font-size: 1.1rem;
+            padding: 20px 25px; cursor: pointer; display: flex;
+            justify-content: space-between; align-items: center;
+            font-family: var(--gta-sub); text-transform: uppercase;
+            font-style: italic; background: rgba(255,255,255,0.02);
+            font-size: clamp(0.85rem, 3vw, 1rem);
         }
 
-        .rule-title i { color: var(--cyan); transition: 0.4s; }
+        .rule-title i { color: var(--cyan); transition: 0.4s; font-size: 0.8rem; }
 
         .rule-content {
-            padding: 0 35px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0, 1, 0, 1);
-            color: #ccc;
+            padding: 0 25px; max-height: 0; overflow: hidden;
+            transition: all 0.4s ease-in-out; color: #ccc;
         }
 
         .rule-section.active .rule-content {
-            padding: 20px 35px 40px;
-            max-height: 2000px;
-            transition: all 0.5s ease-in-out;
+            padding: 15px 25px 30px; max-height: 1500px;
         }
 
         .rule-section.active .rule-title { color: var(--cyan); background: rgba(0, 251, 255, 0.05); }
         .rule-section.active .rule-title i { transform: rotate(180deg); }
 
-        .rule-content ul { list-style: none; }
-        .rule-content li { margin-bottom: 18px; position: relative; padding-left: 25px; font-size: 1rem; }
+        .rule-content li { margin-bottom: 15px; position: relative; padding-left: 20px; font-size: 0.9rem; list-style: none;}
         .rule-content li::before { 
-            content: "➔"; color: var(--cyan); 
-            position: absolute; left: 0; font-weight: 900;
+            content: "➔"; color: var(--cyan); position: absolute; left: 0; font-weight: 900;
         }
 
-        .important { color: var(--cyan); font-weight: 800; text-transform: uppercase; font-size: 0.9rem; }
-        .danger-text { color: var(--danger); font-weight: 900; text-transform: uppercase; }
+        .important { color: var(--cyan); font-weight: 800; }
+        .danger-text { color: var(--danger); font-weight: 900; }
 
-        /* BOTTONI AZIONE */
+        /* AZIONI FINALI */
         .action-btns { 
-            display: flex; gap: 20px; justify-content: center; margin-top: 40px; 
-            border-top: 1px solid var(--border); padding-top: 30px;
+            display: flex; gap: 15px; justify-content: center; margin-top: 30px; 
+            border-top: 1px solid var(--border); padding-top: 25px;
         }
         .btn-small { 
-            font-family: var(--gta-sub);
-            padding: 15px 30px; text-decoration: none; 
-            font-size: 0.8rem; text-transform: uppercase; transition: 0.3s;
-            font-style: italic; display: flex; align-items: center; gap: 10px;
+            font-family: var(--gta-sub); padding: 12px 20px; text-decoration: none; 
+            font-size: 0.7rem; text-transform: uppercase; transition: 0.3s;
+            font-style: italic; display: flex; align-items: center; gap: 8px;
+            border-radius: 4px;
         }
-        .btn-pdf { background: #333; color: white; border: 1px solid #444; }
+        .btn-pdf { background: #222; color: white; border: 1px solid #444; }
         .btn-discord { background: var(--cyan); color: black; }
-        
-        .btn-small:hover { transform: scale(1.05); filter: brightness(1.2); }
 
         footer { 
-            padding: 80px 0; text-align: center; color: #444; 
-            font-family: var(--gta-sub); font-size: 0.8rem; border-top: 2px solid var(--border); 
+            padding: 50px 0; text-align: center; color: #444; 
+            font-family: var(--gta-sub); font-size: 0.7rem; border-top: 1px solid var(--border); 
             text-transform: uppercase; font-style: italic;
         }
 
-        @media (max-width: 768px) {
-            .navbar { height: 80px; }
-            .rules-header { padding: 140px 6% 40px; }
-            .rule-title { padding: 20px; font-size: 0.9rem; }
-            .action-btns { flex-direction: column; }
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 600px) {
+            .rule-title { padding: 15px 20px; }
+            .rule-content { padding: 0 20px; }
+            .action-btns { flex-direction: column; width: 100%; align-items: center; }
+            .btn-small { width: 100%; justify-content: center; }
+            .back-home { font-size: 0.6rem; padding: 5px 10px; }
         }
     </style>
 </head>
@@ -181,12 +147,12 @@
         <a href="index.html" class="logo-area">
             <span class="brand">Coming Soon <span class="cyan">RP</span></span>
         </a>
-        <a href="index.html" class="back-home">Torna alla Home</a>
+        <a href="index.html" class="back-home">Home</a>
     </nav>
 
     <header class="rules-header" data-aos="fade-down">
         <h1>Regolamento <span>Generale</span></h1>
-        <p>Protocollo Operativo - Ultimo aggiornamento: 07/02/2026</p>
+        <p>Protocollo Operativo - Update: 07/02/2026</p>
     </header>
 
     <div class="rules-container">
@@ -198,62 +164,61 @@
             </div>
             <div class="rule-content">
                 <ul>
-                    <li><span class="important">RDM (Random Deathmatch):</span> È severamente vietato uccidere o ferire altri giocatori senza un'interazione RP preventiva e un valido motivo.</li>
-                    <li><span class="important">VDM (Vehicle Deathmatch):</span> L'utilizzo di veicoli come armi improprie per investire player o colpire altri mezzi senza senso è punibile con il ban.</li>
-                    <li><span class="important">MetaGaming:</span> Utilizzare informazioni acquisite OOC (Discord, Stream, ID sopra la testa) per trarne vantaggio in-game.</li>
-                    <li><span class="important">PowerGaming:</span> Compiere azioni che ignorano le leggi della fisica o che non lasciano possibilità di reazione alla controparte (es. guidare una supercar in montagna).</li>
-                    <li><span class="important">Combat Log:</span> Disconnettersi durante un'azione, un arresto o una rianimazione medica è vietato.</li>
+                    <li><span class="important">RDM:</span> Vietato uccidere senza un'interazione RP e un motivo valido.</li>
+                    <li><span class="important">VDM:</span> Vietato usare veicoli come armi per investire player.</li>
+                    <li><span class="important">MetaGaming:</span> Vietato usare info OOC (Discord/Stream) in gioco.</li>
+                    <li><span class="important">PowerGaming:</span> Vietato compiere azioni fisicamente impossibili.</li>
+                    <li><span class="important">Combat Log:</span> Vietato uscire dal gioco durante un'azione o arresto.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="rule-section" data-aos="fade-up" data-aos-delay="100">
+        <div class="rule-section" data-aos="fade-up">
             <div class="rule-title">
                 02. Comportamento e Immersion
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="rule-content">
                 <ul>
-                    <li>È obbligatorio mantenere un comportamento consono al proprio personaggio in ogni situazione.</li>
-                    <li>L'utilizzo di un microfono funzionante e di buona qualità è un requisito fondamentale per giocare.</li>
-                    <li><span class="important">No-Fear:</span> Devi simulare la paura per la vita del tuo personaggio (es. se hai 3 pistole puntate contro, non puoi scappare o insultare).</li>
-                    <li>Insulti OOC, discriminazioni, razzismo o sessismo comporteranno il ban permanente immediato.</li>
+                    <li>Obbligo di mantenere il personaggio (IC) in ogni situazione.</li>
+                    <li>Microfono di buona qualità obbligatorio.</li>
+                    <li><span class="important">No-Fear:</span> Devi simulare paura se la tua vita è in pericolo.</li>
+                    <li><span class="danger-text">Tossicità:</span> Insulti OOC o razzismo = Ban permanente.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="rule-section" data-aos="fade-up" data-aos-delay="200">
+        <div class="rule-section" data-aos="fade-up">
             <div class="rule-title">
-                03. Rapine, Furti e Green Zones
+                03. Rapine e Green Zones
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="rule-content">
                 <ul>
-                    <li><span class="important">Green Zones:</span> Ospedali, Centrali di Polizia e concessionari sono aree dove è vietata qualsiasi attività criminale.</li>
-                    <li>È vietato rapinare i player che svolgono lavori base (es. corriere, spazzino) a meno che non ci sia una motivazione valida.</li>
-                    <li>Il limite massimo di soldi rapinabili è stabilito dal regolamento interno fazioni (consultare Discord).</li>
+                    <li><span class="important">Green Zones:</span> Ospedali e Polizia sono zone sicure (no crimine).</li>
+                    <li>Vietato rapinare chi svolge lavori base (es. spazzino).</li>
+                    <li>Rispettare i limiti di bottino imposti dal server.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="rule-section" data-aos="fade-up" data-aos-delay="300" style="border-left: 4px solid var(--danger);">
+        <div class="rule-section" data-aos="fade-up" style="border-left: 4px solid var(--danger);">
             <div class="rule-title">
-                <span style="color: var(--danger);">04. Protocollo Staff & Tossicità</span>
+                <span style="color: var(--danger);">04. Staff & Exploit</span>
                 <i class="fas fa-gavel" style="color: var(--danger);"></i>
             </div>
             <div class="rule-content">
-                <p style="text-align: center; font-family: var(--gta-sub); color: var(--danger); margin-bottom: 25px; font-size: 1.2rem; font-style: italic;">AVVISO DI MASSIMA PRIORITÀ</p>
+                <p style="text-align: center; color: var(--danger); margin-bottom: 20px; font-weight: 800;">AVVISO DI PRIORITÀ</p>
                 <ul>
-                    <li>Il <span class="important">Buon Senso</span> prevale su qualsiasi riga scritta in questo regolamento.</li>
-                    <li>Lo Staff ha l'ultima parola su ogni disputa. Contestare in modo aggressivo o tossico porterà all'aggravamento della sanzione.</li>
-                    <li><span class="danger-text">Stream Sniping:</span> È vietato disturbare o utilizzare info dalle dirette dei creator che giocano sul server.</li>
-                    <li>Qualsiasi tentativo di sfruttare bug o glitch del gioco (Exploit) deve essere segnalato. L'abuso comporta il wipe del personaggio.</li>
-                    <li>Rispetta i membri dello Staff: sono qui per garantire il divertimento di tutti gratuitamente.</li>
+                    <li>Il <span class="important">Buon Senso</span> è la regola numero uno.</li>
+                    <li>Lo Staff ha l'ultima parola. La tossicità non è tollerata.</li>
+                    <li><span class="danger-text">Exploit:</span> Abusare di bug porta al wipe del personaggio.</li>
+                    <li><span class="danger-text">Stream Sniping:</span> Severamente vietato.</li>
                 </ul>
 
                 <div class="action-btns">
-                    <a href="#" class="btn-small btn-pdf"><i class="fas fa-file-download"></i> Regolamento Completo (PDF)</a>
-                    <a href="https://discord.gg/dk6VtX6MGa" target="_blank" class="btn-small btn-discord"><i class="fab fa-discord"></i> Apri Segnalazione</a>
+                    <a href="#" class="btn-small btn-pdf"><i class="fas fa-file-download"></i> PDF Completo</a>
+                    <a href="https://discord.gg/dk6VtX6MGa" target="_blank" class="btn-small btn-discord"><i class="fab fa-discord"></i> Segnala</a>
                 </div>
             </div>
         </div>
@@ -270,12 +235,10 @@
             title.addEventListener('click', () => {
                 const section = title.parentElement;
                 
-                // Se vuoi che se ne apra solo una alla volta, scommenta queste righe:
-                /*
+                // Chiude le altre sezioni aperte (opzionale, ma consigliato su mobile)
                 document.querySelectorAll('.rule-section').forEach(s => {
                     if(s !== section) s.classList.remove('active');
                 });
-                */
 
                 section.classList.toggle('active');
             });
@@ -283,5 +246,4 @@
     </script>
 </body>
 </html>
-
 
