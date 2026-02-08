@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon | La tua seconda vita</title>
+    <title>GDR PROJECT | La tua seconda vita</title>
     
     <link rel="icon" type="image/png" href="logo.png">
     
@@ -18,10 +18,12 @@
         }
 
         :root {
-            --orange: #00fbff;
+            --gold: #D4AF37;
+            --gold-bright: #FFD700;
             --dark: #000000;
-            --card-bg: #050505;
-            --border: rgba(255, 255, 255, 0.05);
+            --white: #ffffff;
+            --card-bg: #0a0a0a;
+            --border: rgba(212, 175, 55, 0.2);
             --gta-font: 'Pricedown', sans-serif;
             --gta-sub: 'Archivo Black', sans-serif;
         }
@@ -30,13 +32,13 @@
         
         body {
             background-color: var(--dark);
-            color: white;
+            color: var(--white);
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* NAVBAR OTTIMIZZATA */
+        /* NAVBAR */
         .navbar {
             position: fixed; top: 0; width: 100%; height: 80px;
             display: flex; align-items: center; justify-content: space-between;
@@ -51,93 +53,109 @@
         
         .logo-text .brand { 
             font-family: var(--gta-font); 
-            font-size: 1.4rem; 
-            text-transform: capitalize; 
+            font-size: 1.6rem; 
+            letter-spacing: 1px;
         }
-        .logo-text .online { font-family: var(--gta-sub); font-size: 0.6rem; color: #666; display: block; }
 
-        .nav-links { display: flex; list-style: none; gap: 15px; }
+        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; }
         .nav-links a { 
-            font-family: var(--gta-sub); color: white; 
+            font-family: var(--gta-sub); color: var(--white); 
             text-decoration: none; font-size: 0.75rem; 
-            text-transform: uppercase; opacity: 0.6; transition: 0.3s; font-style: italic;
+            text-transform: uppercase; opacity: 0.7; transition: 0.3s; font-style: italic;
         }
-        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--orange); }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold); }
 
         .play-btn { 
-            font-family: var(--gta-sub); background: var(--orange); 
-            color: black; padding: 8px 18px; border-radius: 4px; 
+            font-family: var(--gta-sub); background: var(--gold); 
+            color: black; padding: 10px 20px; border-radius: 4px; 
             font-weight: 900; text-decoration: none; font-size: 0.75rem; 
-            transition: 0.3s; font-style: italic;
+            transition: 0.3s; font-style: italic; box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
+        .play-btn:hover { background: var(--gold-bright); transform: scale(1.05); }
 
-        /* HERO SECTION RESPONSIVE */
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--gold); cursor: pointer; }
+
+        /* HERO SECTION */
         .hero {
-            min-height: 100vh; padding: 100px 20px;
+            min-height: 100vh; padding: 120px 20px;
             display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), 
-                        url('https://cdn.discordapp.com/attachments/1211714887731122324/1469661183027187752/Gemini_Generated_Image_75zcot75zcot75zc.png?ex=69887823&is=698726a3&hm=50d3e2e13a2e5a60a8f7087e0496cbe2d502d784c11e4a10d4fb6395284283a8&');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
+                        url('https://cdn.discordapp.com/attachments/1211714887731122324/1469661183027187752/Gemini_Generated_Image_75zcot75zcot75zc.png?ex=6989c9a3&is=69887823&hm=89a106b8ec91e8da3363e30bdbd267f1fadc9e446b49166288898483ee6ec34c&');
             background-size: cover; background-position: center; text-align: center;
         }
 
         .hero h1 { 
             font-family: var(--gta-font);
-            font-size: clamp(3rem, 10vw, 7rem); 
+            font-size: clamp(3rem, 12vw, 7rem); 
             line-height: 1.1; margin-bottom: 20px;
-            text-shadow: 3px 3px 0px rgba(0,0,0,0.8);
+            text-shadow: 4px 4px 0px rgba(0,0,0,1);
+            color: var(--white);
         }
-        .hero h1 span { color: var(--orange); }
+        .hero h1 span { color: var(--gold); }
         
         .hero p { 
             font-family: var(--gta-sub); font-size: clamp(0.9rem, 4vw, 1.2rem); 
-            color: #eee; margin-bottom: 30px; text-transform: uppercase; font-style: italic;
+            color: #ccc; margin-bottom: 35px; text-transform: uppercase; font-style: italic;
+            letter-spacing: 2px;
         }
 
         .status-badge {
             font-family: var(--gta-sub); background: rgba(0,0,0,0.8); 
-            padding: 8px 20px; border-radius: 4px; border: 2px solid var(--orange); 
-            display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; margin-bottom: 20px;
+            padding: 8px 20px; border-radius: 4px; border: 1px solid var(--gold); 
+            display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; margin-bottom: 25px;
+            color: var(--gold);
         }
 
-        .hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
         
         .btn-big { 
-            font-family: var(--gta-sub); padding: 15px 35px; 
+            font-family: var(--gta-sub); padding: 18px 40px; 
             border-radius: 4px; text-transform: uppercase; 
             text-decoration: none; font-size: 0.9rem; transition: 0.3s; font-style: italic;
-            min-width: 180px;
+            min-width: 200px; font-weight: 900;
         }
-        .btn-orange { background: var(--orange); color: black; }
-        .btn-dark { background: rgba(0,0,0,0.8); color: white; border: 2px solid white; }
+        .btn-gold { background: var(--gold); color: black; }
+        .btn-gold:hover { background: var(--gold-bright); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .btn-outline { background: transparent; color: white; border: 2px solid white; }
+        .btn-outline:hover { background: white; color: black; }
 
         .ip-box { 
             font-family: var(--gta-sub); padding: 15px 30px; 
-            border: 2px solid var(--orange); color: var(--orange);
-            background: rgba(0,0,0,0.8); font-size: 1rem; 
-            cursor: pointer; margin-top: 25px; display: inline-block;
+            border: 1px solid var(--border); color: #888;
+            background: rgba(255,255,255,0.03); font-size: 0.9rem; 
+            cursor: pointer; margin-top: 30px; display: inline-block;
+            transition: 0.3s;
         }
+        .ip-box:hover { color: var(--gold); border-color: var(--gold); }
 
-        /* STATS BAR RESPONSIVE */
+        /* STATS */
         .stats-bar { 
             display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            padding: 60px 5%; background: #030303; border-top: 1px solid #111; gap: 30px; text-align: center;
+            padding: 60px 5%; background: #050505; border-top: 1px solid var(--border); gap: 40px; text-align: center;
         }
-        .stat-item h4 { font-family: var(--gta-font); font-size: clamp(2.5rem, 8vw, 3.5rem); color: var(--orange); }
-        .stat-item p { font-family: var(--gta-sub); color: #777; text-transform: uppercase; font-size: 0.7rem; }
+        .stat-item h4 { font-family: var(--gta-font); font-size: 3.5rem; color: var(--gold); }
+        .stat-item p { font-family: var(--gta-sub); color: #555; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
 
         footer { 
-            padding: 40px 20px; background: #000; text-align: center; color: #444; 
-            font-family: var(--gta-sub); font-size: 0.7rem; text-transform: uppercase; font-style: italic;
+            padding: 50px 20px; background: #000; text-align: center; color: #333; 
+            font-family: var(--gta-sub); font-size: 0.7rem; text-transform: uppercase;
+            border-top: 1px solid #111;
         }
 
-        /* MEDIA QUERIES PER TELEFONO */
+        /* MOBILE OPTIMIZATION */
+        .mobile-only { display: none; }
+
         @media (max-width: 768px) {
-            .navbar { height: 70px; padding: 0 15px; }
-            .nav-links { display: none; } /* Nascondi menu su mobile per spazio */
-            .logo-img { height: 35px; }
-            .hero { padding-top: 120px; }
-            .btn-big { width: 100%; max-width: 280px; }
-            .stats-bar { padding: 40px 20px; }
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
+                background: rgba(5,5,5,0.98); flex-direction: column; justify-content: center;
+                transition: 0.4s; border-left: 1px solid var(--gold); z-index: 999;
+            }
+            .nav-links.active { right: 0; }
+            .desktop-only { display: none; }
+            .mobile-only { display: block; margin-top: 20px; }
+            .hero h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -147,34 +165,43 @@
         <div class="logo-area">
             <img src="logo.png" alt="Logo" class="logo-img">
             <div class="logo-text">
-                <span class="brand">Coming Soon <span style="color: var(--orange)">RP</span></span>
-                <span class="online" id="header-status">OFFLINE</span>
+                <span class="brand" style="color: white;">GDR <span style="color: var(--gold)">PROJECT</span></span>
+                <span style="font-size:0.55rem; color:#555; display:block; font-family:var(--gta-sub)" id="header-status">STATUS CHECKING...</span>
             </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="progetto.html">Progetto</a></li>
-            <li><a href="regolamento.html">Regolamento</a></li>
-            <li><a href="whitelist.html">Whitelist</a></li>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="nav-list">
+            <li><a href="index.html" class="active">HOME</a></li>
+            <li><a href="progetto.html">PROGETTO</a></li>
+            <li><a href="regolamento.html">REGOLAMENTO</a></li>
+            <li><a href="whitelist.html">WHITELIST</a></li>
+            <li class="mobile-only">
+                <a href="fivem://connect/1469263320417566802" class="play-btn">GIOCA ORA</a>
+            </li>
         </ul>
-        <a href="fivem://connect/1469263320417566802" class="play-btn">GIOCA</a>
+
+        <a href="fivem://connect/1469263320417566802" class="play-btn desktop-only">GIOCA</a>
     </header>
 
     <section class="hero">
         <div class="hero-content" data-aos="fade-up">
             <div class="status-badge" id="main-status-badge">
-                <span style="height:8px; width:8px; background:#ff0000; border-radius:50%"></span> OFFLINE
+                <span style="height:8px; width:8px; background:gray; border-radius:50%"></span> VERIFICA SERVER...
             </div>
-            <h1>Coming Soon <span>RolePlay</span></h1>
+            <h1>GDR <span>PROJECT</span></h1>
             <p>Scegli la tua storia. Vivi l'eccellenza.</p>
             
             <div class="hero-btns">
-                <a href="fivem://connect/1469263320417566802" class="btn-big btn-orange">Entra Ora</a>
-                <a href="https://discord.gg/nn38kJz4a" target="_blank" class="btn-big btn-dark"><i class="fab fa-discord"></i> Discord</a>
+                <a href="whitelist.html" class="btn-big btn-gold">Inizia Whitelist</a>
+                <a href="https://discord.gg/nn38kJz4a" target="_blank" class="btn-big btn-outline"><i class="fab fa-discord"></i> Discord</a>
             </div>
 
             <div class="ip-area">
-                <div class="ip-box" id="copyIp">COPIA IP SERVER</div>
+                <div class="ip-box" id="copyIp">SERVER ID: COMING SOON</div>
             </div>
         </div>
     </section>
@@ -182,41 +209,49 @@
     <div class="stats-bar">
         <div class="stat-item">
             <h4 id="discord-count">0</h4>
-            <p>Online Discord</p>
+            <p>Community Discord</p>
         </div>
         <div class="stat-item">
             <h4 class="p-count">0</h4>
-            <p>Giocatori Game</p>
+            <p>Cittadini in Game</p>
         </div>
         <div class="stat-item">
             <h4>99%</h4>
-            <p>Uptime</p>
+            <p>Server Uptime</p>
         </div>
     </div>
 
-    <footer>© 2026 COMING SOON — ELITE ROLEPLAY — RAWEST89</footer>
+    <footer>© 2026 GDR PROJECT — ELITE ROLEPLAY EXPERIENCE — DEVELOPED BY RAWEST89</footer>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, duration: 800 });
 
-        const SERVER_ID = "1469263320417566802";
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        const SERVER_ID = "957794379186192425";
 
         async function updateStats() {
-            // FiveM
             try {
                 const res = await fetch(`https://servers-frontend.fivem.net/api/servers/single/${SERVER_ID}`);
                 if (res.ok) {
                     const data = await res.json();
                     const p = data.Data.clients;
                     document.querySelectorAll('.p-count').forEach(el => el.innerText = p);
-                    document.getElementById('header-status').innerText = "ONLINE";
-                    document.getElementById('header-status').style.color = "#00ff00";
-                    document.getElementById('main-status-badge').innerHTML = `<span style="height:8px; width:8px; background:#00ff00; border-radius:50%"></span> ONLINE: ${p} PLAYER`;
+                    document.getElementById('header-status').innerText = "SERVER ONLINE";
+                    document.getElementById('header-status').style.color = "#D4AF37";
+                    document.getElementById('main-status-badge').innerHTML = `<span style="height:8px; width:8px; background:#D4AF37; border-radius:50%; box-shadow: 0 0 10px #D4AF37"></span> ONLINE: ${p} CITTADINI`;
                 }
-            } catch (e) {}
+            } catch (e) {
+                document.getElementById('header-status').innerText = "SERVER OFFLINE";
+            }
 
-            // Discord
             try {
                 const res = await fetch(`https://discord.com/api/guilds/${SERVER_ID}/widget.json`);
                 if (res.ok) {
@@ -228,8 +263,13 @@
 
         document.getElementById('copyIp').addEventListener('click', function() {
             navigator.clipboard.writeText(SERVER_ID);
-            this.innerText = "COPIATO!";
-            setTimeout(() => { this.innerText = "COPIA IP SERVER"; }, 2000);
+            const originalText = this.innerText;
+            this.innerText = "ID COPIATO!";
+            this.style.color = "#D4AF37";
+            setTimeout(() => { 
+                this.innerText = originalText; 
+                this.style.color = "#888";
+            }, 2000);
         });
 
         updateStats();
