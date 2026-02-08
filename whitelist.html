@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whitelist | Coming Soon RP</title>
+    <title>Whitelist | GDR PROJECT</title>
 
     <link rel="icon" type="image/png" href="logo.png">
 
@@ -18,10 +18,11 @@
         }
 
         :root {
-            --orange: #00fbff;
+            --gold: #D4AF37;
+            --gold-bright: #FFD700;
             --dark: #000000;
-            --card-bg: rgba(5, 5, 5, 0.95);
-            --border: rgba(0, 251, 255, 0.2);
+            --card-bg: rgba(5, 5, 5, 0.98);
+            --border: rgba(212, 175, 55, 0.2);
             --gta-font: 'Pricedown', sans-serif;
             --gta-sub: 'Archivo Black', sans-serif;
         }
@@ -30,92 +31,92 @@
         
         body {
             background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), 
-                        url('https://cdn.discordapp.com/attachments/1211714887731122324/1469661183027187752/Gemini_Generated_Image_75zcot75zcot75zc.png');
+                        url('https://cdn.discordapp.com/attachments/1211714887731122324/1469661183027187752/Gemini_Generated_Image_75zcot75zcot75zc.png?ex=6989c9a3&is=69887823&hm=89a106b8ec91e8da3363e30bdbd267f1fadc9e446b49166288898483ee6ec34c&');
             background-size: cover; background-position: center; background-attachment: fixed;
             color: white; font-family: 'Montserrat', sans-serif; line-height: 1.4;
         }
 
-        /* NAVBAR MOBILE-READY */
+        /* NAVBAR */
         .navbar {
-            position: fixed; top: 0; width: 100%; height: 70px;
+            position: fixed; top: 0; width: 100%; height: 75px;
             display: flex; align-items: center; justify-content: space-between;
-            padding: 0 5%; z-index: 1000; background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(10px); border-bottom: 2px solid var(--border);
+            padding: 0 5%; z-index: 1000; background: rgba(0,0,0,0.98);
+            backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);
         }
 
-        .brand { font-family: var(--gta-font); font-size: clamp(1.2rem, 4vw, 1.8rem); text-transform: capitalize; }
-        .orange { color: var(--orange); }
+        .brand { font-family: var(--gta-font); font-size: 1.8rem; letter-spacing: 1px; }
+        .gold-text { color: var(--gold); }
 
-        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links { display: flex; list-style: none; gap: 25px; }
         .nav-links a { 
             font-family: var(--gta-sub); color: white; text-decoration: none; font-size: 0.75rem; 
             text-transform: uppercase; opacity: 0.6; transition: 0.3s; font-style: italic;
         }
-        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--orange); }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold); }
 
         /* CONTAINER FORM */
-        .whitelist-container { padding: 100px 15px 60px; display: flex; justify-content: center; min-height: 100vh; }
+        .whitelist-container { padding: 120px 15px 60px; display: flex; justify-content: center; min-height: 100vh; }
         
         .glass-card { 
             background: var(--card-bg); border: 1px solid var(--border); 
-            padding: clamp(20px, 5vw, 50px); width: 100%; max-width: 850px;
-            border-radius: 4px;
+            padding: clamp(25px, 5vw, 50px); width: 100%; max-width: 850px;
+            border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         h1 { 
-            font-family: var(--gta-font); font-size: clamp(2rem, 8vw, 3.5rem); 
-            text-align: center; text-shadow: 3px 3px 0px rgba(0,0,0,0.8); margin-bottom: 5px;
+            font-family: var(--gta-font); font-size: clamp(2.2rem, 8vw, 3.8rem); 
+            text-align: center; text-shadow: 4px 4px 0px rgba(0,0,0,1); margin-bottom: 5px;
         }
-        h1 span { color: var(--orange); }
+        h1 span { color: var(--gold); }
 
         .subtitle { 
-            font-family: var(--gta-sub); text-align: center; color: #555; 
-            margin-bottom: 30px; text-transform: uppercase; font-style: italic; font-size: 0.75rem;
+            font-family: var(--gta-sub); text-align: center; color: #444; 
+            margin-bottom: 40px; text-transform: uppercase; font-style: italic; font-size: 0.75rem; letter-spacing: 2px;
         }
 
         .form-section-title {
-            font-family: var(--gta-sub); color: var(--orange); text-transform: uppercase; font-style: italic;
-            margin: 35px 0 20px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px;
+            font-family: var(--gta-sub); color: var(--gold); text-transform: uppercase; font-style: italic;
+            margin: 40px 0 25px; font-size: 0.95rem; display: flex; align-items: center; gap: 15px;
         }
         .form-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .full-width { grid-column: span 2; }
 
         .input-group label { 
-            font-family: var(--gta-sub); display: block; font-size: 0.65rem; 
-            text-transform: uppercase; margin-bottom: 6px; color: #888; 
+            font-family: var(--gta-sub); display: block; font-size: 0.7rem; 
+            text-transform: uppercase; margin-bottom: 8px; color: #666; font-style: italic;
         }
         
         .input-group input, .input-group textarea {
-            width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px; border-radius: 4px; color: white; font-family: 'Montserrat', sans-serif; 
-            outline: none; transition: 0.3s; font-size: 0.9rem;
+            width: 100%; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 14px; border-radius: 4px; color: white; font-family: 'Montserrat', sans-serif; 
+            outline: none; transition: 0.3s; font-size: 0.95rem;
         }
         
         .input-group input:focus, .input-group textarea:focus { 
-            border-color: var(--orange); background: rgba(0, 251, 255, 0.05); 
+            border-color: var(--gold); background: rgba(212, 175, 55, 0.05); 
         }
 
         .btn-send {
-            font-family: var(--gta-sub); width: 100%; margin-top: 40px; padding: 18px;
-            background: var(--orange); border: none; border-radius: 4px; color: black;
-            font-size: clamp(0.9rem, 3vw, 1.1rem); text-transform: uppercase; 
+            font-family: var(--gta-sub); width: 100%; margin-top: 50px; padding: 20px;
+            background: var(--gold); border: none; border-radius: 4px; color: black;
+            font-size: 1.1rem; text-transform: uppercase; 
             cursor: pointer; transition: 0.3s; font-style: italic; font-weight: 900;
         }
-        .btn-send:hover { filter: brightness(1.2); transform: translateY(-2px); }
+        .btn-send:hover { background: var(--gold-bright); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2); }
+        .btn-send:active { transform: translateY(0); }
         .btn-send:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        #status-msg { margin-top: 20px; text-align: center; padding: 12px; border-radius: 4px; display: none; font-family: var(--gta-sub); font-size: 0.75rem; }
+        #status-msg { margin-top: 25px; text-align: center; padding: 15px; border-radius: 4px; display: none; font-family: var(--gta-sub); font-size: 0.8rem; font-style: italic; }
 
-        footer { font-family: var(--gta-sub); text-align: center; padding: 40px 20px; color: #444; text-transform: uppercase; font-size: 0.7rem; }
+        footer { font-family: var(--gta-sub); text-align: center; padding: 60px 20px; color: #333; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
 
-        /* MOBILE ADJUSTMENTS */
         @media (max-width: 768px) { 
             .form-grid { grid-template-columns: 1fr; } 
             .full-width { grid-column: span 1; } 
             .nav-links { display: none; }
-            .whitelist-container { padding-top: 90px; }
+            .whitelist-container { padding-top: 100px; }
         }
     </style>
 </head>
@@ -123,29 +124,28 @@
 
     <header class="navbar">
         <div class="logo-area">
-            <span class="brand">Coming Soon <span class="orange">RP</span></span>
+            <span class="brand" style="color: white;">GDR <span class="gold-text">PROJECT</span></span>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="progetto.html">Progetto</a></li>
             <li><a href="regolamento.html">Regolamento</a></li>
-            <li><a href="come-giocare.html">Come Giocare</a></li>
             <li><a href="whitelist.html" class="active">Whitelist</a></li>
         </ul>
-        <a href="fivem://connect/1469263320417566802" class="play-btn">GIOCA</a>
+        <a href="fivem://connect/1469263320417566802" style="font-family: var(--gta-sub); background: var(--gold); color: black; padding: 8px 15px; text-decoration: none; font-size: 0.7rem; font-style: italic; font-weight: 900; border-radius: 3px;">GIOCA</a>
     </header>
     
     <main class="whitelist-container">
         <div class="glass-card" data-aos="fade-up">
             <h1>Richiesta <span>Whitelist</span></h1>
-            <p class="subtitle">Modulo di Ingresso Cittadino</p>
+            <p class="subtitle">Protocollo di Accesso al Server</p>
 
             <form id="whitelistForm">
-                <div class="form-section-title">01 - Dati Out Of Character</div>
+                <div class="form-section-title">01 - Informazioni OOC (Reali)</div>
                 <div class="form-grid">
                     <div class="input-group">
                         <label>Età Reale</label>
-                        <input type="number" id="ooc_eta" placeholder="Es. 20" required>
+                        <input type="number" id="ooc_eta" placeholder="Es. 21" required>
                     </div>
                     <div class="input-group">
                         <label>Steam HEX</label>
@@ -153,48 +153,47 @@
                     </div>
                     <div class="input-group full-width">
                         <label>Link Profilo Steam</label>
-                        <input type="url" id="ooc_steam_url" placeholder="https://steamcommunity.com/id/..." required>
+                        <input type="url" id="ooc_steam_url" placeholder="https://steamcommunity.com/id/tuoprofilo" required>
                     </div>
                     <div class="input-group full-width">
-                        <label>Esperienza Roleplay</label>
-                        <textarea id="ooc_exp" placeholder="Server passati o ore totali..." rows="3" required></textarea>
+                        <label>Esperienza Roleplay Precedente</label>
+                        <textarea id="ooc_exp" placeholder="Descrivi brevemente i server in cui hai giocato e le ore totali..." rows="3" required></textarea>
                     </div>
                 </div>
 
-                <div class="form-section-title">02 - Dati In Character</div>
+                <div class="form-section-title">02 - Informazioni IC (Personaggio)</div>
                 <div class="form-grid">
                     <div class="input-group">
                         <label>Nome e Cognome PG</label>
-                        <input type="text" id="ic_nome" placeholder="Es. Tony Montana" required>
+                        <input type="text" id="ic_nome" placeholder="Es. Marco Rossi" required>
                     </div>
                     <div class="input-group">
-                        <label>Età Personaggio</label>
-                        <input type="number" id="ic_eta" placeholder="Es. 35" required>
+                        <label>Età del Personaggio</label>
+                        <input type="number" id="ic_eta" placeholder="Es. 28" required>
                     </div>
                     <div class="input-group full-width">
-                        <label>Background Personaggio</label>
-                        <textarea id="ic_bg" placeholder="Raccontaci la storia del tuo PG..." rows="5" required></textarea>
+                        <label>Background e Storia</label>
+                        <textarea id="ic_bg" placeholder="Raccontaci chi è il tuo personaggio, le sue origini e i suoi obiettivi..." rows="6" required></textarea>
                     </div>
                     <div class="input-group full-width">
-                        <label>Vizi / Dipendenze / Precedenti</label>
-                        <textarea id="ic_vizzi" placeholder="Caratteristiche particolari o problemi con la legge..." rows="3" required></textarea>
+                        <label>Tratti distintivi e Personalità</label>
+                        <textarea id="ic_vizzi" placeholder="Vizi, fobie, dipendenze o particolarità caratteriali..." rows="3" required></textarea>
                     </div>
                 </div>
 
-                <button type="submit" class="btn-send" id="submitBtn">Sottometti Candidatura</button>
+                <button type="submit" class="btn-send" id="submitBtn">Invia Candidatura</button>
                 <div id="status-msg"></div>
             </form>
         </div>
     </main>
 
-    <footer>© 2026 COMING SOON — ELITE ROLEPLAY EXPERIENCE</footer>
+    <footer>© 2026 GDR PROJECT — ELITE ROLEPLAY EXPERIENCE — RAWEST89</footer>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
 
-        // URL Webhook (Mantenuta la tua originale)
-        const WEBHOOK_URL = "https://discord.com/api/webhooks/1469841257760166043/fJIHU1Kt9qkpqaMDRerQGCBPiUILpGSagIo8i9al8I-47dHbSVBAJq_W7AvD7uCWaq6L";
+        const WEBHOOK_URL = "https://discord.com/api/webhooks/1470178626522710036/0cUZi-P3qnJXWxYSgWgtPDQSmeRS3LfFjQ3jh0D_GLoqhyfqx8_QrEHsuvmlaNjmn6IM";
 
         document.getElementById('whitelistForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -203,22 +202,22 @@
             const btn = document.getElementById('submitBtn');
             
             btn.disabled = true;
-            btn.innerText = "INVIO IN CORSO...";
+            btn.innerText = "TRASMISSIONE DATI...";
 
             const embedData = {
-                username: "Sistema Whitelist",
+                username: "GDR PROJECT | Whitelist",
                 embeds: [{
-                    title: "📩 NUOVA CANDIDATURA WHITELIST",
-                    color: 64511, // Colore Ciano
+                    title: "🏆 NUOVA RICHIESTA DI AMMISSIONE",
+                    color: 13938487, // Colore Oro HEX D4AF37 in Decimal
                     fields: [
-                        { name: "👤 UTENTE OOC", value: `**Età:** ${document.getElementById('ooc_eta').value}\n**HEX:** \`${document.getElementById('ooc_hex').value}\``, inline: true },
-                        { name: "🔗 STEAM", value: `[Profilo](${document.getElementById('ooc_steam_url').value})`, inline: true },
-                        { name: "📖 ESPERIENZA", value: document.getElementById('ooc_exp').value },
-                        { name: "🎭 PERSONAGGIO IC", value: `**Nome:** ${document.getElementById('ic_nome').value}\n**Età:** ${document.getElementById('ic_eta').value}` },
-                        { name: "📜 STORIA PG", value: document.getElementById('ic_bg').value },
-                        { name: "⚖️ DETTAGLI IC", value: document.getElementById('ic_vizzi').value }
+                        { name: "👤 CANDIDATO OOC", value: `**Età:** ${document.getElementById('ooc_eta').value}\n**HEX:** \`${document.getElementById('ooc_hex').value}\``, inline: true },
+                        { name: "🔗 PROFILO", value: `[Link Steam](${document.getElementById('ooc_steam_url').value})`, inline: true },
+                        { name: "📖 CARRIERA RP", value: document.getElementById('ooc_exp').value },
+                        { name: "🎭 IDENTITÀ IC", value: `**Nome:** ${document.getElementById('ic_nome').value}\n**Età:** ${document.getElementById('ic_eta').value}` },
+                        { name: "📜 BIOGRAFIA PG", value: document.getElementById('ic_bg').value },
+                        { name: "⚖️ CARATTERE/VIZI", value: document.getElementById('ic_vizzi').value }
                     ],
-                    footer: { text: "Coming Soon RP - Web Application" },
+                    footer: { text: "GDR PROJECT - Sistema Gestione Candidature" },
                     timestamp: new Date()
                 }]
             };
@@ -231,9 +230,9 @@
             .then(response => {
                 status.style.display = "block";
                 if (response.ok) {
-                    status.style.background = "rgba(0, 251, 255, 0.1)";
-                    status.style.color = "#00fbff";
-                    status.innerText = "✅ CANDIDATURA INVIATA! CONTROLLA DISCORD.";
+                    status.style.background = "rgba(212, 175, 55, 0.1)";
+                    status.style.color = "#D4AF37";
+                    status.innerText = "✅ CANDIDATURA INVIATA CON SUCCESSO! TI RISPONDEREMO SU DISCORD.";
                     e.target.reset();
                 } else {
                     throw new Error();
@@ -242,17 +241,18 @@
             .catch(() => {
                 status.style.display = "block";
                 status.style.background = "rgba(255, 0, 0, 0.1)";
-                status.style.color = "#ff3e3e";
-                status.innerText = "❌ ERRORE DI CONNESSIONE AL WEBHOOK.";
+                status.style.color = "#ff4d4d";
+                status.innerText = "❌ ERRORE: IMPOSSIBILE INVIARE I DATI. RIPROVA PIÙ TARDI.";
             })
             .finally(() => {
                 btn.disabled = false;
-                btn.innerText = "SOTTOMETTI CANDIDATURA";
+                btn.innerText = "INVIA CANDIDATURA";
             });
         });
     </script>
 </body>
 </html>
+
 
 
 
