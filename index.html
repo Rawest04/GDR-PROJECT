@@ -79,14 +79,14 @@
         .hero {
             min-height: 100vh; padding: 120px 20px;
             display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
-                        url('https://cdn.discordapp.com/attachments/1470162639106609253/1471504221713993818/image.png?ex=699126d9&is=698fd559&hm=d1e0d9db7d3110fa0facef10ce772224c83555459e159518dbed7dd1fefb782b&');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)), 
+                        url('https://cdn.discordapp.com/attachments/1470162639106609253/1471293561726304420/IMG_0756.png?ex=69925ce8&is=69910b68&hm=0e0b9c1a66433395518afb372710b712f1972d27c0043c98cf70633b369c43e1&');
             background-size: cover; background-position: center; text-align: center;
         }
 
         .hero h1 { 
             font-family: var(--gta-font);
-            font-size: clamp(3rem, 12vw, 7rem); 
+            font-size: clamp(3.5rem, 12vw, 7.5rem); 
             line-height: 1.1; margin-bottom: 20px;
             text-shadow: 4px 4px 0px rgba(0,0,0,1);
             color: var(--white);
@@ -94,28 +94,21 @@
         .hero h1 span { color: var(--gold); }
         
         .hero p { 
-            font-family: var(--gta-sub); font-size: clamp(0.9rem, 4vw, 1.2rem); 
-            color: #ccc; margin-bottom: 35px; text-transform: uppercase; font-style: italic;
-            letter-spacing: 2px;
+            font-family: var(--gta-sub); font-size: clamp(1rem, 4vw, 1.4rem); 
+            color: #eee; margin-bottom: 45px; text-transform: uppercase; font-style: italic;
+            letter-spacing: 3px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .status-badge {
-            font-family: var(--gta-sub); background: rgba(0,0,0,0.8); 
-            padding: 8px 20px; border-radius: 4px; border: 1px solid var(--gold); 
-            display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; margin-bottom: 25px;
-            color: var(--gold);
-        }
-
-        .hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
         
         .btn-big { 
-            font-family: var(--gta-sub); padding: 18px 40px; 
+            font-family: var(--gta-sub); padding: 18px 45px; 
             border-radius: 4px; text-transform: uppercase; 
-            text-decoration: none; font-size: 0.9rem; transition: 0.3s; font-style: italic;
-            min-width: 200px; font-weight: 900;
+            text-decoration: none; font-size: 0.95rem; transition: 0.3s; font-style: italic;
+            min-width: 220px; font-weight: 900;
         }
         .btn-gold { background: var(--gold); color: black; }
-        .btn-gold:hover { background: var(--gold-bright); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .btn-gold:hover { background: var(--gold-bright); box-shadow: 0 0 25px rgba(212, 175, 55, 0.5); }
         .btn-outline { background: transparent; color: white; border: 2px solid white; }
         .btn-outline:hover { background: white; color: black; }
 
@@ -123,23 +116,23 @@
             font-family: var(--gta-sub); padding: 15px 30px; 
             border: 1px solid var(--border); color: #888;
             background: rgba(255,255,255,0.03); font-size: 0.9rem; 
-            cursor: pointer; margin-top: 30px; display: inline-block;
-            transition: 0.3s;
+            cursor: pointer; margin-top: 40px; display: inline-block;
+            transition: 0.3s; border-radius: 4px;
         }
-        .ip-box:hover { color: var(--gold); border-color: var(--gold); }
+        .ip-box:hover { color: var(--gold); border-color: var(--gold); background: rgba(212, 175, 55, 0.05); }
 
         /* STATS */
         .stats-bar { 
             display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            padding: 60px 5%; background: #050505; border-top: 1px solid var(--border); gap: 40px; text-align: center;
+            padding: 70px 5%; background: #050505; border-top: 1px solid var(--border); gap: 40px; text-align: center;
         }
-        .stat-item h4 { font-family: var(--gta-font); font-size: 3.5rem; color: var(--gold); }
-        .stat-item p { font-family: var(--gta-sub); color: #555; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
+        .stat-item h4 { font-family: var(--gta-font); font-size: 3.8rem; color: var(--gold); }
+        .stat-item p { font-family: var(--gta-sub); color: #666; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
 
         footer { 
-            padding: 50px 20px; background: #000; text-align: center; color: #333; 
-            font-family: var(--gta-sub); font-size: 0.7rem; text-transform: uppercase;
-            border-top: 1px solid #111;
+            padding: 50px 20px; background: #000; text-align: center; color: #444; 
+            font-family: var(--gta-sub); font-size: 0.75rem; text-transform: uppercase;
+            border-top: 1px solid #111; letter-spacing: 1px;
         }
 
         /* MOBILE OPTIMIZATION */
@@ -155,7 +148,7 @@
             .nav-links.active { right: 0; }
             .desktop-only { display: none; }
             .mobile-only { display: block; margin-top: 20px; }
-            .hero h1 { font-size: 3.5rem; }
+            .hero h1 { font-size: 4rem; }
         }
     </style>
 </head>
@@ -189,10 +182,7 @@
 
     <section class="hero">
         <div class="hero-content" data-aos="fade-up">
-            <div class="status-badge" id="main-status-badge">
-                <span style="height:8px; width:8px; background:gray; border-radius:50%"></span> VERIFICA SERVER...
-            </div>
-            <h1>GDR <span>PROJECT</span></h1>
+            <h1> <span> </span></h1>
             <p>Scegli la tua storia. Vivi l'eccellenza.</p>
             
             <div class="hero-btns">
@@ -201,7 +191,7 @@
             </div>
 
             <div class="ip-area">
-                <div class="ip-box" id="copyIp">SERVER ID: COMING SOON</div>
+                <div class="ip-box" id="copyIp">SERVER ID:COMING SOON</div>
             </div>
         </div>
     </section>
@@ -246,10 +236,11 @@
                     document.querySelectorAll('.p-count').forEach(el => el.innerText = p);
                     document.getElementById('header-status').innerText = "SERVER ONLINE";
                     document.getElementById('header-status').style.color = "#D4AF37";
-                    document.getElementById('main-status-badge').innerHTML = `<span style="height:8px; width:8px; background:#D4AF37; border-radius:50%; box-shadow: 0 0 10px #D4AF37"></span> ONLINE: ${p} CITTADINI`;
+                    // Aggiorniamo solo le stat bar, la hero rimane pulita
                 }
             } catch (e) {
                 document.getElementById('header-status').innerText = "SERVER OFFLINE";
+                document.getElementById('header-status').style.color = "#ff4d4d";
             }
 
             try {
@@ -262,7 +253,7 @@
         }
 
         document.getElementById('copyIp').addEventListener('click', function() {
-            navigator.clipboard.writeText(SERVER_ID);
+            navigator.clipboard.writeText("1469263320417566802");
             const originalText = this.innerText;
             this.innerText = "ID COPIATO!";
             this.style.color = "#D4AF37";
@@ -277,5 +268,6 @@
     </script>
 </body>
 </html>
+
 
 
