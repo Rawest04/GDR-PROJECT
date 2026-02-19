@@ -156,6 +156,10 @@
                         <input type="url" id="ooc_steam_url" placeholder="https://steamcommunity.com/id/tuoprofilo" required>
                     </div>
                     <div class="input-group full-width">
+                        <label>Id Discord</label>
+                        <input type="text" id="ooc_discord_id" placeholder="Es. 123456789012345678" required>
+                    </div>
+                    <div class="input-group full-width">
                         <label>Esperienza Roleplay Precedente</label>
                         <textarea id="ooc_exp" placeholder="Descrivi brevemente i server in cui hai giocato e le ore totali..." rows="3" required></textarea>
                     </div>
@@ -220,6 +224,7 @@
                     fields: [
                         { name: "👤 CANDIDATO OOC", value: `**Età:** ${document.getElementById('ooc_eta').value}\n**HEX:** \`${document.getElementById('ooc_hex').value}\``, inline: true },
                         { name: "🔗 PROFILO", value: `[Link Steam](${document.getElementById('ooc_steam_url').value})`, inline: true },
+                        { name: "💬 ID DISCORD", value: `<@${document.getElementById('ooc_discord_id').value}>`, inline: true },
                         { name: "📖 CARRIERA RP", value: document.getElementById('ooc_exp').value },
                         { name: "🎭 IDENTITÀ IC", value: `**Nome:** ${document.getElementById('ic_nome').value}\n**Età:** ${document.getElementById('ic_eta').value}` },
                         { name: "📜 STORIA BREVE DEL PERSONAGGIO", value: document.getElementById('ic_bg').value },
@@ -262,6 +267,7 @@
     </script>
 </body>
 </html>
+
 
 
 
