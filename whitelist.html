@@ -30,10 +30,15 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
+            
             background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), 
-                        url('https://cdn.discordapp.com/attachments/1470162639106609253/1471504221713993818/image.png?ex=699126d9&is=698fd559&hm=d1e0d9db7d3110fa0facef10ce772224c83555459e159518dbed7dd1fefb782b&');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: white; font-family: 'Montserrat', sans-serif; line-height: 1.4;
+                        url('sfondo2.0.png');
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed;
+            color: white; 
+            font-family: 'Montserrat', sans-serif; 
+            line-height: 1.4;
         }
 
         /* NAVBAR */
@@ -181,15 +186,15 @@
                     </div>
                     <div class="input-group full-width">
                         <label>Vincolo Morale</label>
-                        <textarea id="ic_vizzi" placeholder="È la regola che il personaggio che non infrangerebbe mai, oppure il valore che guida le sue decisioni" rows="3" required></textarea>
+                        <textarea id="ic_vizzi" placeholder="È la regola che il personaggio che non infrangerebbe mai..." rows="3" required></textarea>
                     </div>
-                      <div class="input-group full-width">
+                    <div class="input-group full-width">
                         <label>Paure</label>
-                        <textarea id="ic_paure" placeholder="La paura rende il personaggio umano e vulnerabile. Non deve essere solo fisica, ma può essere anche psicologica. " rows="3" required></textarea>
+                        <textarea id="ic_paure" placeholder="La paura rende il personaggio umano e vulnerabile..." rows="3" required></textarea>
                     </div>
-                        <div class="input-group full-width">
+                    <div class="input-group full-width">
                         <label>Dipendenze</label>
-                        <textarea id="ic_dipendenze" placeholder="Le dipendenze sono i vizi o le necessità che rendono il personaggio imperfetto e manipolabile anche ricattabile" rows="3" required></textarea>
+                        <textarea id="ic_dipendenze" placeholder="I vizi che rendono il personaggio imperfetto..." rows="3" required></textarea>
                     </div>
                 </div>
 
@@ -220,7 +225,7 @@
                 username: "GDR PROJECT | Whitelist",
                 embeds: [{
                     title: "🏆 NUOVA RICHIESTA DI AMMISSIONE",
-                    color: 13938487, // Colore Oro HEX D4AF37 in Decimal
+                    color: 13938487,
                     fields: [
                         { name: "👤 CANDIDATO OOC", value: `**Età:** ${document.getElementById('ooc_eta').value}\n**HEX:** \`${document.getElementById('ooc_hex').value}\``, inline: true },
                         { name: "🔗 PROFILO", value: `[Link Steam](${document.getElementById('ooc_steam_url').value})`, inline: true },
